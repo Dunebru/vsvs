@@ -4,75 +4,232 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VSVS LLC</title>
-<meta name="description" content="VSVS LLC, Chandler, Arizona. Maker of Speakeasy for iPhone, and owner of residential property.">
+<meta name="description" content="VSVS LLC owns and lets residential homes in Chandler, Arizona.">
+<meta name="theme-color" content="#050505">
 <meta property="og:title" content="VSVS LLC">
-<meta property="og:description" content="Maker of Speakeasy for iPhone. Chandler, Arizona.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0F12'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%234AE3F0'/%3E%3C/svg%3E">
+<meta property="og:description" content="Residential homes in Chandler, Arizona, kept properly.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vsvsllc.com/">
+<link rel="canonical" href="https://vsvsllc.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Cpath d='M18 20l14 26 14-26' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;900&family=DM+Sans:opsz,wght@9..40,200;9..40,400&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
 <style>
-  :root { --ground: #0B0F12; --surface: #141A1F; --line: #22292F; --ink: #F2F6F8; --soft: #9AA7B0; --faint: #6F7C85; --accent: #4AE3F0; --on: #06282C; }
-  * { box-sizing: border-box; }
+  :root {
+    color-scheme: dark;
+    --bg: #050505;
+    --text: #ffffff;
+    --muted: rgba(255, 255, 255, 0.66);
+    --faint: rgba(255, 255, 255, 0.3);
+    --line: rgba(255, 255, 255, 0.18);
+    --panel-line: rgba(255, 255, 255, 0.1);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --gutter: clamp(20px, 2.6vw, 50px);
+    font-family: "DM Sans", "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--ground); color: var(--ink); font: 17px/1.55 -apple-system, "SF Pro Text", Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-  header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
-  .brand { font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
-  nav a { color: var(--soft); margin-left: 24px; font-size: 15px; }
-  .hero { padding: 72px 0 40px; }
-  .hero h1 { font-size: clamp(40px, 7vw, 72px); line-height: 1.02; letter-spacing: -0.025em; margin: 0 0 18px; font-weight: 700; }
-  .hero p { color: var(--soft); font-size: 20px; max-width: 560px; margin: 0 0 28px; }
-  .btn { display: inline-block; background: var(--accent); color: var(--on); font-weight: 600; padding: 14px 22px; border-radius: 12px; }
-  .btn:hover { text-decoration: none; filter: brightness(1.05); }
-  .glow { position: relative; }
-  .glow::before { content: ""; position: absolute; inset: -120px 0 auto 0; height: 520px; background: radial-gradient(520px 320px at 30% 40%, rgba(74,227,240,.16), transparent 60%); pointer-events: none; }
-  .product { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; padding: 56px 0; border-top: 1px solid var(--line); }
-  .product h2 { font-size: 34px; letter-spacing: -0.02em; margin: 0 0 12px; }
-  .product p { color: var(--soft); margin: 0 0 16px; }
-  .shots { display: flex; gap: 18px; justify-content: center; }
-  .shots img { width: 46%; max-width: 250px; border-radius: 28px; border: 1px solid var(--line); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
-  .shots img:last-child { transform: translateY(28px); }
-  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; padding: 8px 0 64px; }
-  .fact { background: var(--surface); border-radius: 16px; padding: 22px; }
-  .fact h3 { margin: 0 0 6px; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); font-weight: 600; }
-  .fact p { margin: 0; color: var(--ink); }
-  footer { border-top: 1px solid var(--line); padding: 28px 0 56px; color: var(--faint); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-  @media (max-width: 760px) { .product { grid-template-columns: 1fr; } .facts { grid-template-columns: 1fr; } .shots img:last-child { transform: none; } }
+  body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; border-radius: 2px; }
+  .skip { position: absolute; left: -999px; top: 8px; padding: 8px 12px; background: #fff; color: #000; z-index: 100; }
+  .skip:focus { left: 8px; }
+
+  /* ---------- entrances ---------- */
+  @keyframes reveal { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+  .load { opacity: 0; filter: blur(9px); transform: translateY(15px); animation: reveal 0.9s var(--ease) forwards; }
+  .word { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(22px); animation: reveal 0.85s var(--ease) forwards; animation-delay: calc(0.22s + var(--i) * 0.13s); }
+  .reveal { opacity: 0; filter: blur(8px); transform: translateY(22px); transition: opacity 0.9s var(--ease), filter 0.9s var(--ease), transform 0.9s var(--ease); }
+  .reveal.is-visible { opacity: 1; filter: blur(0); transform: translateY(0); }
+  .reveal[data-delay="1"].is-visible { transition-delay: 120ms; }
+  .reveal[data-delay="2"].is-visible { transition-delay: 260ms; }
+  .reveal[data-delay="3"].is-visible { transition-delay: 420ms; }
+  @media (prefers-reduced-motion: reduce) {
+    .load, .word, .reveal { opacity: 1; filter: none; transform: none; animation: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- header ---------- */
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: clamp(20px, 2.2vw, 42px); pointer-events: none; transition: padding 650ms var(--ease), background 650ms var(--ease); }
+  .site-header.is-compact { padding: 12px clamp(20px, 2.2vw, 42px); background: rgba(18, 18, 18, 0.34); -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08); }
+  .brand { font-size: clamp(13px, 0.9vw, 17px); font-weight: 200; letter-spacing: 0.01em; line-height: 1; pointer-events: auto; }
+  .nav { display: flex; gap: clamp(18px, 2.1vw, 42px); pointer-events: auto; animation-delay: 120ms; }
+  .nav a { font-size: clamp(13px, 0.9vw, 17px); font-weight: 200; letter-spacing: 0.01em; line-height: 1; color: rgba(255, 255, 255, 0.86); white-space: nowrap; transition: color 180ms ease; }
+  .nav a:hover, .nav a:focus-visible { color: #ffffff; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; isolation: isolate; min-height: 100svh; overflow: hidden; background: var(--bg); }
+  .mark { position: absolute; top: 50%; left: 50%; width: min(78vw, 640px); height: min(78vw, 640px); transform: translate(-50%, -50%); color: #ffffff; opacity: 0; animation: markIn 2.2s var(--ease) 0.15s forwards; }
+  @keyframes markIn { to { opacity: 1; } }
+  .mark line, .mark path { stroke: currentColor; stroke-width: 0.6; fill: none; vector-effect: non-scaling-stroke; }
+  .mark .o1 { opacity: 0.34; } .mark .o2 { opacity: 0.22; } .mark .o3 { opacity: 0.14; } .mark .o4 { opacity: 0.08; }
+  .hero-title { position: absolute; left: var(--gutter); bottom: clamp(24px, 3vw, 58px); z-index: 2; margin: 0; max-width: calc(100vw - clamp(40px, 5.2vw, 100px)); color: rgba(255, 255, 255, 0.76); font-family: "Playfair Display", Georgia, serif; font-size: clamp(30px, 3.3vw, 64px); font-weight: 400; line-height: 1.08; letter-spacing: 0; }
+  .hero-title .word + .word { margin-left: 0.25em; }
+  .hero-eyebrow { position: absolute; right: var(--gutter); bottom: clamp(30px, 3.4vw, 66px); z-index: 2; margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); animation-delay: 900ms; }
+
+  /* ---------- statement ---------- */
+  .statement { display: grid; place-items: center; min-height: 100svh; padding: 32px; background: #000000; }
+  .statement p { margin: 0; max-width: 24ch; font-family: "Playfair Display", Georgia, serif; font-size: clamp(20px, 2.15vw, 42px); font-weight: 400; line-height: 1.45; letter-spacing: 0; text-align: center; }
+
+  /* ---------- about ---------- */
+  .about { position: relative; display: grid; grid-template-columns: minmax(0, 52.5fr) minmax(0, 47.5fr); min-height: 100svh; background: #000000; }
+  .about-copy { padding: clamp(44px, 4vw, 68px) clamp(30px, 4.3vw, 72px); }
+  .about-title { max-width: 13ch; margin: 0 0 clamp(22px, 2vw, 34px); font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 3.25vw, 4.25rem); font-weight: 400; line-height: 0.98; letter-spacing: -0.045em; }
+  .about-text { margin: 0; max-width: 46rem; font-family: Georgia, "Times New Roman", serif; color: rgba(255, 255, 255, 0.92); font-size: clamp(1rem, 1.05vw, 1.18rem); font-weight: 400; line-height: 1.42; letter-spacing: -0.015em; }
+  .about-text + .about-text { margin-top: clamp(18px, 1.6vw, 28px); }
+  .about-figure { position: relative; min-height: 100svh; overflow: hidden; border-left: 1px solid var(--panel-line); display: grid; place-items: center; }
+  .plan { width: min(70%, 520px); height: auto; color: #ffffff; }
+  .plan line, .plan rect, .plan path { stroke: currentColor; stroke-width: 0.6; fill: none; vector-effect: non-scaling-stroke; }
+  .plan .o1 { opacity: 0.5; } .plan .o2 { opacity: 0.28; } .plan .o3 { opacity: 0.14; }
+  .about-facts { position: absolute; left: clamp(22px, 3vw, 44px); bottom: clamp(22px, 3vw, 44px); display: grid; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); line-height: 1.4; }
+
+  /* ---------- panels ---------- */
+  .section { position: relative; padding: clamp(18px, 4vw, 52px); background: #000000; }
+  .panel { display: flex; flex-direction: column; gap: 24px; padding: clamp(24px, 4vw, 48px); border: 1px solid var(--panel-line); border-radius: 32px; background: #000000; }
+  .pill { display: inline-flex; width: fit-content; padding: 6px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.65); }
+  .panel-title { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.04em; }
+  .panel-copy { margin: 0; max-width: 46rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.45; color: rgba(255, 255, 255, 0.82); }
+  .cta { display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 0.9rem 1.3rem; border-radius: 999px; background: #ffffff; color: #000000; font-size: 0.95rem; font-weight: 700; transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
+  .cta:hover, .cta:focus-visible { background: rgba(0, 0, 0, 0.92); color: #ffffff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
+
+  /* ---------- closing ---------- */
+  .closing { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 100svh; padding: clamp(18px, 4vw, 52px); background: #000000; }
+  .closing-title { margin: 0; font-family: "Manrope", "DM Sans", sans-serif; font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; font-size: clamp(3.4rem, 9vw, 10rem); }
+  .closing-links { align-self: flex-end; margin: 0; font-family: "Manrope", "DM Sans", sans-serif; font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; font-size: clamp(2rem, 6vw, 6.4rem); text-align: right; }
+  .closing-links a { position: relative; display: inline-block; overflow: hidden; padding: 0.08em 0.16em 0.18em; margin: -0.08em -0.16em -0.18em; vertical-align: top; }
+  .closing-links a span { display: block; transition: transform 430ms cubic-bezier(0.34, 1.18, 0.64, 1); }
+  .closing-links a::after { content: attr(data-label); position: absolute; top: 0.08em; right: 0.16em; transform: translateX(112%); filter: blur(2px); transition: transform 430ms cubic-bezier(0.34, 1.18, 0.64, 1), filter 430ms ease; }
+  .closing-links a:hover span, .closing-links a:focus-visible span { transform: translateX(-112%); }
+  .closing-links a:hover::after, .closing-links a:focus-visible::after { transform: translateX(0); filter: blur(0); }
+  footer { padding-top: 40px; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--faint); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.4; text-transform: uppercase; }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a { transition: color 180ms ease; }
+  .footer-links a:hover, .footer-links a:focus-visible { color: #ffffff; }
+
+  @media (max-width: 720px) {
+    .site-header { padding: 18px; }
+    .site-header.is-compact { padding: 12px 18px; }
+    .brand { font-size: 1rem; }
+    .hero-title { left: 18px; bottom: 64px; max-width: calc(100vw - 36px); font-size: clamp(28px, 8vw, 40px); }
+    .hero-eyebrow { left: 18px; right: auto; bottom: 22px; }
+    .about { grid-template-columns: 1fr; min-height: auto; }
+    .about-copy { min-height: 62svh; padding: 48px 18px 64px; }
+    .about-title { max-width: 10ch; font-size: clamp(2.5rem, 12vw, 4.4rem); }
+    .about-text { max-width: 38ch; font-size: 1rem; }
+    .about-figure { min-height: 62svh; border-left: 0; border-top: 1px solid var(--panel-line); }
+    .section, .closing { padding: 18px; }
+    .panel { border-radius: 24px; gap: 18px; padding: 20px; }
+    .closing-title { font-size: clamp(3rem, 16vw, 5.8rem); }
+    .closing-links { font-size: clamp(1.6rem, 9vw, 3.2rem); align-self: flex-start; text-align: left; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 18px 26px; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <span class="brand">VSVS LLC</span>
-    <nav><a href="#speakeasy">Speakeasy</a><a href="#contact">Contact</a></nav>
-  </header>
+<a class="skip" href="#about">Skip to content</a>
 
-  <section class="hero glow">
-    <h1>Software you can<br>practise out loud.</h1>
-    <p>VSVS LLC is a small company in Chandler, Arizona. It makes Speakeasy, an iPhone app for speaking off the cuff, and owns residential property.</p>
-    <a class="btn" href="https://apps.apple.com/us/app/speakeasy-talk-on-the-spot/id6803355515?uo=4">Speakeasy on the App Store</a>
+<header class="site-header" id="top">
+  <a class="brand load" href="#top">VSVS LLC</a>
+  <nav class="nav load" aria-label="Site">
+    <a href="#about">About</a>
+    <a href="#tenants">Tenants</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" aria-label="VSVS LLC">
+    <svg class="mark" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <path class="o4" d="M100 8 L192 60 L192 140 L100 192 L8 140 L8 60 Z"/>
+      <path class="o3" d="M100 28 L175 70 L175 130 L100 172 L25 130 L25 70 Z"/>
+      <path class="o2" d="M100 48 L158 80 L158 120 L100 152 L42 120 L42 80 Z"/>
+      <path class="o1" d="M100 68 L141 90 L141 110 L100 132 L59 110 L59 90 Z"/>
+      <line class="o2" x1="100" y1="8" x2="100" y2="192"/>
+      <line class="o2" x1="8" y1="60" x2="192" y2="140"/>
+      <line class="o2" x1="8" y1="140" x2="192" y2="60"/>
+    </svg>
+    <h1 class="hero-title">
+      <span class="word" style="--i:0">Homes</span>
+      <span class="word" style="--i:1">in</span>
+      <span class="word" style="--i:2">Chandler,</span>
+      <span class="word" style="--i:3">kept</span>
+      <span class="word" style="--i:4">properly.</span>
+    </h1>
+    <p class="hero-eyebrow load">Residential property · Arizona</p>
   </section>
 
-  <section class="product" id="speakeasy">
-    <div>
-      <h2>Speakeasy</h2>
-      <p>Two words, thirty seconds, a talk that connects them. Speakeasy is a daily drill for the part of speaking nobody practises: thinking while people are listening.</p>
-      <p>Everything runs on the phone. Your voice is transcribed on the device, your talks stay on the device, and the app tells you what happened rather than grading you: how long you took to start, where you paused, which words you reached for.</p>
-      <p><a href="https://apps.apple.com/us/app/speakeasy-talk-on-the-spot/id6803355515?uo=4">Download on the App Store</a> · <a href="https://dunebru.github.io/speakeasy/privacy/">Privacy policy</a></p>
+  <section class="statement" aria-label="What we believe">
+    <p class="reveal">A few houses, each one looked after as if we lived in it.</p>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-copy">
+      <h2 class="about-title reveal">About us</h2>
+      <p class="about-text reveal" data-delay="1">VSVS LLC owns and lets residential homes in Chandler, Arizona. It is a small company by design: a handful of houses, each maintained properly and let on plain terms.</p>
+      <p class="about-text reveal" data-delay="2">Repairs are handled within days, deposits are returned as agreed, and the person who answers the email is the person who owns the house.</p>
     </div>
-    <div class="shots">
-      <img src="speakeasy-idle.png" alt="Speakeasy's practice screen: two words, popcorn and loneliness, and a Start button" width="250">
-      <img src="speakeasy-results.png" alt="Speakeasy's results screen: 2.2 seconds to start, the two words with marks, pace and pauses" width="250">
+    <div class="about-figure reveal" data-delay="3">
+      <svg class="plan" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
+        <rect class="o1" x="20" y="40" width="280" height="180" rx="2"/>
+        <line class="o2" x1="20" y1="130" x2="180" y2="130"/>
+        <line class="o2" x1="180" y1="40" x2="180" y2="220"/>
+        <line class="o2" x1="110" y1="130" x2="110" y2="220"/>
+        <line class="o3" x1="240" y1="40" x2="240" y2="130"/>
+        <line class="o3" x1="180" y1="130" x2="300" y2="130"/>
+        <path class="o1" d="M20 40 L160 8 L300 40"/>
+        <path class="o3" d="M150 220 a20 20 0 0 1 20 -20"/>
+        <path class="o3" d="M240 130 a20 20 0 0 1 20 20"/>
+      </svg>
+      <div class="about-facts">
+        <span>Chandler, Arizona</span>
+        <span>Founded 2026</span>
+      </div>
     </div>
   </section>
 
-  <section class="facts" id="contact">
-    <div class="fact"><h3>Company</h3><p>VSVS LLC<br>Chandler, Arizona, United States</p></div>
-    <div class="fact"><h3>Contact</h3><p><a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a></p></div>
-    <div class="fact"><h3>Speakeasy support</h3><p><a href="mailto:speakeasyhelp@gmail.com">speakeasyhelp@gmail.com</a></p></div>
+  <section class="section" id="tenants">
+    <div class="panel reveal">
+      <span class="pill">Tenants</span>
+      <h2 class="panel-title">If something needs fixing, say so.</h2>
+      <p class="panel-copy">Email with the house and what happened. Urgent things are seen to the same day; everything else within a few days. Rent questions, lease questions and notices go to the same address.</p>
+      <a class="cta" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">hello@vsvsllc.com</a>
+    </div>
   </section>
 
-  <footer><span>© 2026 VSVS LLC</span><span>Property · Software</span></footer>
-</div>
+  <section class="closing" id="contact">
+    <h2 class="closing-title reveal">Say hello</h2>
+    <p class="closing-links reveal" data-delay="1">
+      <a href="mailto:hello@vsvsllc.com" data-label="hello@vsvsllc.com"><span>hello@vsvsllc.com</span></a>
+    </p>
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 VSVS LLC · Chandler, Arizona</span>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="#about">About</a>
+          <a href="#tenants">Tenants</a>
+          <a href="mailto:hello@vsvsllc.com">Email</a>
+        </nav>
+      </div>
+    </footer>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var header = document.querySelector('.site-header');
+    var compact = function () { header.classList.toggle('is-compact', window.scrollY > 24); };
+    compact(); window.addEventListener('scroll', compact, { passive: true });
+
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
