@@ -2,156 +2,311 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className += " js";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#f4f1ea">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
 <title>VSVS LLC</title>
-<meta name="description" content="VSVS LLC is a small property company in Scottsdale, Arizona. It owns a few houses and rents them out.">
+<meta name="description" content="VSVS LLC is a small property company in Arizona. It owns houses in Scottsdale, Chandler and Tucson, and rents them out.">
 <meta property="og:title" content="VSVS LLC">
-<meta property="og:description" content="A small property company in Scottsdale, Arizona.">
+<meta property="og:description" content="Houses in Scottsdale, Chandler and Tucson.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vsvsllc.com/">
+<meta property="og:image" content="https://vsvsllc.com/art/hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Hanken+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="art/hero.jpg" fetchpriority="high">
 <style>
   :root {
-    --paper: #f4f1ea;
-    --ink: #1e1b18;
-    --muted: #6b655c;
-    --clay: #a8452b;
-    --hair: rgba(30, 27, 24, 0.16);
-    --serif: "Newsreader", Georgia, "Times New Roman", serif;
-    --sans: "Hanken Grotesk", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color-scheme: dark;
+    --lav: #a99bf0;
+    --lav-soft: rgba(169, 155, 240, 0.35);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-card: cubic-bezier(0.165, 0.84, 0.44, 1);
   }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 400 19px/1.55 var(--serif);
-    font-optical-sizing: auto;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    font-family: "Manrope", system-ui, -apple-system, sans-serif;
+    background: #000; color: #fff;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
   }
-  ::selection { background: #e6d6c2; }
+  ::selection { background: #fff; color: #000; }
   a { color: inherit; }
-  :focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; border-radius: 2px; }
+  :focus-visible { outline: 1px solid rgba(255, 255, 255, 0.8); outline-offset: 4px; }
+  section[id] { scroll-margin-top: 112px; }
+  .wrap { max-width: 1600px; margin: 0 auto; padding-inline: clamp(20px, 3vw, 40px); }
 
-  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 48px); }
-
-  .top {
-    display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-    padding-block: 22px;
-    font-family: var(--sans); font-size: 14px; line-height: 1.4;
+  /* Nav: dark glass, always. */
+  .nav {
+    position: fixed; top: 0; left: 0; width: 100%; z-index: 50;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
-  .brand { font-weight: 500; letter-spacing: 0.02em; text-decoration: none; }
-  .top nav { display: flex; gap: 22px; }
-  .top a { text-decoration: none; }
-  .top a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
-
-  .hero { padding-block: clamp(72px, 12vw, 160px) clamp(56px, 8vw, 112px); }
-  h1 {
-    margin: 0;
-    font-weight: 400;
-    font-size: clamp(2.6rem, 6.4vw, 5rem);
-    line-height: 1.02;
-    letter-spacing: -0.015em;
-    max-width: 16ch;
-    text-wrap: balance;
+  .nav__in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; }
+  .brand { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; }
+  .links { display: flex; gap: 32px; font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, 0.5); }
+  .links a { text-decoration: none; transition: color 300ms; }
+  .links a:hover { color: #fff; }
+  .cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 9999px; background: #fff; color: #000;
+    font-size: 14px; font-weight: 500; text-decoration: none; white-space: nowrap;
+    transition: background-color 300ms, transform 300ms var(--ease-card);
   }
-  .lede { margin: 28px 0 0; max-width: 34em; font-size: clamp(1.15rem, 1.5vw, 1.35rem); line-height: 1.45; }
+  .cta:hover { background: rgba(255, 255, 255, 0.9); }
+  .cta:active { transform: scale(0.98); }
+  .cta svg { width: 16px; height: 16px; }
 
-  .text a, .lede a {
-    color: var(--clay);
-    text-decoration: underline; text-underline-offset: 0.14em; text-decoration-thickness: 1px;
-    transition: color 160ms ease;
+  /* Pill tag with a dot. */
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
   }
-  .text a:hover, .lede a:hover { color: var(--ink); }
+  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lav); box-shadow: 0 0 10px var(--lav-soft); }
 
-  .row {
-    border-top: 1px solid var(--hair);
-    padding-block: clamp(40px, 6vw, 72px);
-    display: grid; grid-template-columns: 1fr; gap: 12px 48px;
+  /* Hero: the glow artwork full-bleed, the words at the bottom left. */
+  .hero { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; display: flex; align-items: flex-end; }
+  .hero__art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; transform-origin: 50% 100%; }
+  .js .hero__art { animation: breathe 38s ease-in-out infinite alternate; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 50%); }
+  .hero__in { width: 100%; padding-top: 140px; padding-bottom: clamp(40px, 6vw, 80px); }
+  .hero .pill { margin-bottom: 28px; }
+  .hero__title {
+    max-width: 14ch; margin-bottom: 24px;
+    font-size: clamp(3rem, 7.6vw, 7.5rem); font-weight: 300; letter-spacing: -0.045em; line-height: 0.95;
   }
-  @media (min-width: 760px) { .row { grid-template-columns: 220px 1fr; } }
-  h2 {
-    margin: 0; padding-top: 0.35em;
-    font-family: var(--sans); font-weight: 500; font-size: 14px; line-height: 1.4;
-    letter-spacing: 0.01em; color: var(--muted);
-  }
-  .text p { margin: 0; max-width: 34em; }
-  .text p + p { margin-top: 1em; }
+  .word { display: inline-block; }
+  .js .word { opacity: 0; filter: blur(12px); transform: translateY(22px); animation: reveal 0.85s var(--ease) forwards; animation-delay: calc(0.18s + var(--i) * 0.12s); }
+  .lead { max-width: 36rem; font-size: clamp(1.05rem, 1.4vw, 1.25rem); font-weight: 300; line-height: 1.6; color: rgba(255, 255, 255, 0.72); }
 
-  .text .mail {
-    display: inline-block;
-    font-size: clamp(1.75rem, 4.2vw, 3rem);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.06em;
-    transition: color 160ms ease;
+  /* Statement. */
+  .statement { padding-block: clamp(96px, 14vw, 200px); }
+  .statement p {
+    max-width: 30ch; margin: 0 auto; text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.75rem); font-weight: 300; letter-spacing: -0.02em; line-height: 1.3;
   }
-  .where { margin: 18px 0 0; font-family: var(--sans); font-size: 14px; color: var(--muted); }
+  .statement .dim { color: rgba(255, 255, 255, 0.4); }
 
-  .foot {
-    border-top: 1px solid var(--hair);
-    padding-block: 28px max(48px, env(safe-area-inset-bottom));
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px;
-    font-family: var(--sans); font-size: 13px; color: var(--muted);
+  /* Cards: 24px, #111, hairline, the cover breathes on hover. */
+  .cards { padding-block: 0 clamp(80px, 10vw, 140px); }
+  .cards .pill { margin-bottom: 28px; }
+  .h2 { font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 300; letter-spacing: -0.045em; line-height: 0.95; margin-bottom: 20px; }
+  .sub { max-width: 36rem; font-size: 1.1rem; font-weight: 300; line-height: 1.6; color: rgba(255, 255, 255, 0.5); margin-bottom: clamp(40px, 6vw, 80px); }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
+  @media (min-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
+  .img-card { position: relative; overflow: hidden; aspect-ratio: 16 / 9; margin-bottom: 24px; border-radius: 24px; background: #111; border: 1px solid rgba(255, 255, 255, 0.06); }
+  .img-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-card); }
+  .card:hover .img-card img { transform: scale(1.03); }
+  .card h3 { font-size: clamp(1.5rem, 2vw, 1.875rem); font-weight: 500; margin-bottom: 12px; }
+  .card p { max-width: 28rem; font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.5); margin-bottom: 16px; }
+
+  /* Tenants: one wide card. */
+  .tenants { padding-block: 0 clamp(80px, 10vw, 140px); }
+  .panel {
+    position: relative; overflow: hidden; border-radius: 24px; background: #111; border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: clamp(28px, 5vw, 64px);
+    display: grid; grid-template-columns: 1fr; gap: 32px;
   }
+  @media (min-width: 900px) { .panel { grid-template-columns: 1.1fr 1fr; align-items: end; } }
+  .panel::before { content: ""; position: absolute; right: -10%; bottom: -60%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(169, 155, 240, 0.35), rgba(169, 155, 240, 0) 65%); pointer-events: none; }
+  .panel .pill { margin-bottom: 24px; }
+  .panel h2 { font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 300; letter-spacing: -0.035em; line-height: 1.05; max-width: 16ch; }
+  .panel p { font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, 0.5); max-width: 34rem; }
+  .panel p + p { margin-top: 14px; }
+  .panel .cta { margin-top: 28px; }
 
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+  /* Questions. */
+  .faq { padding-block: 0 clamp(80px, 10vw, 140px); }
+  .faq__in { display: grid; grid-template-columns: 1fr; gap: 40px; }
+  @media (min-width: 900px) { .faq__in { grid-template-columns: 0.8fr 1.2fr; gap: clamp(60px, 8vw, 140px); } }
+  .faq__list { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+  .faq__item { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+  .faq__q {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    padding: clamp(20px, 2.2vw, 30px) 0; cursor: pointer; list-style: none;
+    font-size: clamp(1.05rem, 1.35vw, 1.3rem); font-weight: 400;
+  }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__q::after { content: "+"; color: rgba(255, 255, 255, 0.4); font-size: 22px; font-weight: 300; transition: transform 250ms; }
+  .faq__item[open] .faq__q::after { transform: rotate(45deg); }
+  .faq__a { max-width: 60ch; padding-bottom: clamp(20px, 2.2vw, 30px); margin-top: -6px; font-size: 14px; line-height: 1.7; color: rgba(255, 255, 255, 0.5); }
+  .faq__a a { color: #fff; }
+
+  footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 40px 0 max(40px, env(safe-area-inset-bottom)); }
+  .foot { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; justify-content: space-between; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.3); }
+  @media (min-width: 700px) { .foot { flex-direction: row; align-items: center; } }
+  .foot__links { display: flex; flex-wrap: wrap; gap: 32px; }
+  .foot a { color: rgba(255, 255, 255, 0.4); text-decoration: none; transition: color 300ms; }
+  .foot a:hover { color: #fff; }
+
+  /* Entrances: up 40px and in, staggered, only when scripting is on. */
+  .js .up { opacity: 0; transform: translateY(40px); transition: opacity 1s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0ms); }
+  .js .up.in { opacity: 1; transform: none; }
+
+  .grain { position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.05; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px; }
+
+  @keyframes reveal { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+  @keyframes breathe { from { transform: scale(1); } to { transform: scale(1.06); } }
+
+  @media (max-width: 720px) {
+    .links { display: none; }
+    .cta { padding: 10px 18px; font-size: 13px; }
+    .hero__in { padding-top: 120px; }
+    .hero__title { max-width: 12ch; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .word { opacity: 1; filter: none; transform: none; animation: none; }
+    .js .hero__art { animation: none; }
+    .js .up { opacity: 1; transform: none; transition: none; }
+    * { transition: none !important; }
+  }
 </style>
 </head>
 <body>
-<header class="top wrap">
-  <a class="brand" href="#top">VSVS LLC</a>
-  <nav aria-label="Site">
-    <a href="#about">About</a>
-    <a href="#tenants">Tenants</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top">VSVS</a>
+    <nav class="links" aria-label="Site">
+      <a href="#homes">Homes</a>
+      <a href="#tenants">Tenants</a>
+      <a href="#faq">Questions</a>
+    </nav>
+    <a class="cta" href="mailto:hello@vsvsllc.com">Email us
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+    </a>
+  </div>
 </header>
 
-<main id="top" class="wrap">
+<main id="top">
   <section class="hero">
-    <h1>A small property company in Scottsdale, Arizona.</h1>
-    <p class="lede">VSVS LLC owns a few houses in and around Scottsdale and rents them out. Everything to do with them goes through one address, <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>.</p>
-  </section>
-
-  <section id="about" class="row">
-    <h2>About</h2>
-    <div class="text">
-      <p>VSVS LLC is an Arizona limited liability company based in Scottsdale. It buys single-family homes in and around the city, keeps them, and rents them on standard Arizona residential leases.</p>
-      <p>There is no management company in between. The owner signs the leases and reads the email.</p>
+    <img class="hero__art" src="art/hero.jpg" alt="" width="1920" height="1080" fetchpriority="high">
+    <div class="wrap hero__in">
+      <div class="pill"><span class="dot"></span>Arizona</div>
+      <h1 class="hero__title"><span class="word" style="--i:0">Houses</span> <span class="word" style="--i:1">in</span> <span class="word" style="--i:2">Scottsdale,</span> <span class="word" style="--i:3">Chandler</span> <span class="word" style="--i:4">and</span> <span class="word" style="--i:5">Tucson.</span></h1>
+      <p class="lead">VSVS LLC is a small property company. It owns houses in three Arizona cities and rents them out, with one address for everything.</p>
     </div>
   </section>
 
-  <section id="tenants" class="row">
-    <h2>Tenants</h2>
-    <div class="text">
-      <p>If you rent one of our homes, email <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a> for anything to do with the house: repairs, rent, the lease, a notice. Include the address and what happened.</p>
-      <p>If it is an emergency, such as fire, a gas smell or flooding, call 911 first and email afterwards.</p>
+  <section class="statement">
+    <div class="wrap">
+      <p class="up"><span class="dim">There is no management company in between.</span> The owner signs the leases, and the owner reads the email.</p>
     </div>
   </section>
 
-  <section id="contact" class="row">
-    <h2>Contact</h2>
-    <div class="text">
-      <a class="mail" href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>
-      <p class="where">Scottsdale, Arizona</p>
+  <section class="cards" id="homes">
+    <div class="wrap">
+      <div class="pill up"><span class="dot"></span>Where the houses are</div>
+      <h2 class="h2 up">Three cities.</h2>
+      <p class="sub up">Single-family houses, rented on standard Arizona residential leases.</p>
+      <div class="grid">
+        <article class="card up" style="--d:0ms">
+          <div class="img-card"><img src="art/scottsdale.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+          <h3>Scottsdale</h3>
+          <p>Where the company is based, and where its address is.</p>
+          <div class="pill">Base</div>
+        </article>
+        <article class="card up" style="--d:150ms">
+          <div class="img-card"><img src="art/chandler.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+          <h3>Chandler</h3>
+          <p>Houses in the East Valley.</p>
+          <div class="pill">East Valley</div>
+        </article>
+        <article class="card up" style="--d:300ms">
+          <div class="img-card"><img src="art/tucson.jpg" alt="" width="1600" height="900" loading="lazy"></div>
+          <h3>Tucson</h3>
+          <p>Houses in southern Arizona.</p>
+          <div class="pill">Southern Arizona</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="tenants" id="tenants">
+    <div class="wrap">
+      <div class="panel up">
+        <div>
+          <div class="pill"><span class="dot"></span>Tenants</div>
+          <h2>Anything about the house goes to one address.</h2>
+        </div>
+        <div>
+          <p>Repairs, rent, the lease, a notice: email <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a> with the address and what happened.</p>
+          <p>If it is an emergency, such as fire, a gas smell or flooding, call 911 first and email afterwards.</p>
+          <a class="cta" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">Email hello@vsvsllc.com
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="wrap faq__in">
+      <div>
+        <div class="pill up"><span class="dot"></span>Questions</div>
+        <h2 class="h2 up" style="margin-top: 28px">Asked and answered.</h2>
+      </div>
+      <div class="faq__list up">
+        <details class="faq__item">
+          <summary class="faq__q">Who is VSVS?</summary>
+          <p class="faq__a">An Arizona limited liability company based in Scottsdale. It owns houses and rents them out. One owner, no management company.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Where are the houses?</summary>
+          <p class="faq__a">In Scottsdale, Chandler and Tucson.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">I rent one of them. Where does a repair request go?</summary>
+          <p class="faq__a">To <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>, with the address and what happened. If it is an emergency, such as fire, a gas smell or flooding, call 911 first.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Is there a management company?</summary>
+          <p class="faq__a">No. The owner signs the leases and reads the email.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">How do I reach you?</summary>
+          <p class="faq__a"><a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>. One address for everything.</p>
+        </details>
+      </div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">
-  <div class="foot">
-    <span>© 2026 VSVS LLC</span>
-    <span>An Arizona limited liability company</span>
+<footer>
+  <div class="wrap foot">
+    <div>© 2026 VSVS LLC</div>
+    <div class="foot__links">
+      <span>Scottsdale</span>
+      <span>Chandler</span>
+      <span>Tucson</span>
+      <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>
+    </div>
   </div>
 </footer>
+<div class="grain" aria-hidden="true"></div>
+
+<script>
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.up'));
+    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; })
+        .forEach(function (e, i) {
+          if (!e.target.style.getPropertyValue('--d')) e.target.style.setProperty('--d', (i * 150) + 'ms');
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+    items.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 </body>
 </html>
