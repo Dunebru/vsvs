@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#dfe5ee">
+<meta name="theme-color" content="#f5f7fa">
 <title>VSVS LLC</title>
 <meta name="description" content="VSVS LLC is a small property company. It owns houses across Arizona and rents them out.">
 <meta property="og:title" content="VSVS LLC">
@@ -13,18 +13,17 @@
 <meta property="og:url" content="https://vsvsllc.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ground: #dfe5ee;
-    --ink: #2b3140;
-    --soft: #5d6578;
-    --accent: #6d64a3;
-    --deep: #2b3140;
-    --on-deep: #dfe5ee;
-    --on-deep-soft: #aab3c6;
-    --on-deep-accent: #9aa6ff;
-    --display: "Syne", "Avenir Next", "Helvetica Neue", Arial, sans-serif;
+    --ground: #f5f7fa;
+    --ink: #1c2430;
+    --soft: #5b6676;
+    --blue: #7ea3c6;
+    --blue-ink: #4f7ea6;
+    --on-blue: #14202e;
+    --on-blue-soft: #2e4258;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
     --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
     --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -35,69 +34,70 @@
     margin: 0;
     background: var(--ground);
     color: var(--ink);
-    font: 400 18px/1.6 var(--body);
+    font: 400 17px/1.6 var(--body);
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: var(--accent); color: #fff; }
+  ::selection { background: var(--blue); color: var(--on-blue); }
   a { color: inherit; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  :focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 4px; }
 
-  .wrap { max-width: 1360px; margin: 0 auto; padding-inline: clamp(20px, 4vw, 56px); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(20px, 4vw, 48px); }
   .label {
-    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--soft); margin: 0;
   }
 
-  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding-block: 26px; }
-  .brand { font-family: var(--display); font-weight: 800; font-size: 18px; letter-spacing: -0.02em; text-decoration: none; }
-  .top nav { display: flex; gap: 28px; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 22px; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: -0.01em; text-decoration: none; }
+  .top nav { display: flex; gap: 24px; }
   .top nav a {
-    font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--soft); text-decoration: none; transition: color 160ms ease;
   }
   .top nav a:hover { color: var(--ink); }
 
-  .hero { padding-block: clamp(56px, 11vh, 150px) clamp(64px, 10vw, 150px); }
+  .hero { padding-block: clamp(40px, 8vh, 96px) clamp(48px, 7vw, 96px); }
   h1 {
-    margin: 22px 0 0;
-    font-family: var(--display); font-weight: 800;
-    font-size: clamp(3.4rem, 10.5vw, 10.5rem);
-    line-height: 0.92; letter-spacing: -0.035em;
+    margin: 18px 0 0;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.75rem, 7.4vw, 6.75rem);
+    line-height: 0.98; letter-spacing: -0.035em;
+    max-width: 12ch;
   }
-  .line { display: block; overflow: hidden; padding-bottom: 0.06em; margin-bottom: -0.06em; }
-  .line > span { display: block; transform: translateY(110%); animation: rise 0.9s var(--ease) forwards; }
-  .line:nth-child(2) > span { animation-delay: 0.1s; }
-  .az { color: var(--accent); }
+  .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .line > span { display: block; transform: translateY(110%); animation: rise 0.8s var(--ease) forwards; }
+  .line:nth-child(2) > span { animation-delay: 0.08s; }
+  .az { color: var(--blue-ink); }
   .lede {
-    max-width: 34em; margin: 44px 0 0;
-    font-size: clamp(1.15rem, 1.6vw, 1.4rem); line-height: 1.5;
-    opacity: 0; animation: fade 0.8s ease 0.45s forwards;
+    max-width: 32em; margin: 32px 0 0;
+    font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55;
+    opacity: 0; animation: fade 0.7s ease 0.4s forwards;
   }
-  .lede a, .text a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
+  .lede a, .text a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
   .lede a:hover, .text a:hover { color: var(--ink); }
 
-  .row { display: grid; grid-template-columns: 1fr; gap: 18px 48px; padding-block: clamp(48px, 8vw, 120px); }
-  @media (min-width: 820px) { .row { grid-template-columns: minmax(180px, 1fr) 3fr; } }
-  .row .label { padding-top: 0.5em; }
+  .row { display: grid; grid-template-columns: 1fr; gap: 14px 40px; padding-block: clamp(36px, 5.5vw, 76px); border-top: 1px solid rgba(28, 36, 48, 0.1); }
+  @media (min-width: 820px) { .row { grid-template-columns: 200px 1fr; } }
+  .row .label { padding-top: 0.45em; }
   .text p { margin: 0; max-width: 34em; }
-  .text p + p { margin-top: 1.2em; }
+  .text p + p { margin-top: 1.1em; }
 
-  .close { background: var(--deep); color: var(--on-deep); margin-top: clamp(24px, 5vw, 64px); padding-block: clamp(72px, 10vw, 150px) 40px; }
-  .close .label { color: var(--on-deep-soft); }
+  .close { background: var(--blue); color: var(--on-blue); margin-top: clamp(24px, 4vw, 48px); padding-block: clamp(56px, 8vw, 112px) 32px; }
+  .close .label { color: var(--on-blue-soft); }
   .mail {
-    display: inline-block; margin-top: 22px; max-width: 100%;
-    font-family: var(--display); font-weight: 800;
-    font-size: clamp(2.2rem, 6.4vw, 6.4rem); line-height: 1; letter-spacing: -0.03em;
-    color: var(--on-deep); text-decoration: none;
-    border-bottom: 0.06em solid var(--on-deep-accent); padding-bottom: 0.08em;
-    transition: color 160ms ease;
+    display: inline-block; margin-top: 18px; max-width: 100%;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.6rem, 4.6vw, 4.25rem); line-height: 1.05; letter-spacing: -0.03em;
+    color: var(--on-blue); text-decoration: none;
+    border-bottom: 0.06em solid var(--on-blue); padding-bottom: 0.06em;
+    transition: opacity 160ms ease;
   }
-  .mail:hover { color: var(--on-deep-accent); }
-  .close .note { margin: 36px 0 0; max-width: 34em; color: var(--on-deep-soft); font-size: 16px; }
+  .mail:hover { opacity: 0.72; }
+  .close .note { margin: 28px 0 0; max-width: 34em; color: var(--on-blue-soft); font-size: 16px; }
   .foot {
-    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 32px;
-    margin-top: clamp(64px, 8vw, 120px); padding-bottom: max(0px, env(safe-area-inset-bottom));
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-deep-soft);
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px;
+    margin-top: clamp(48px, 6vw, 80px); padding-bottom: max(0px, env(safe-area-inset-bottom));
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-blue-soft);
   }
 
   @keyframes rise { to { transform: none; } }
