@@ -4,211 +4,178 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VSVS LLC</title>
-<meta name="description" content="VSVS LLC owns and lets residential homes in Scottsdale, Arizona.">
+<meta name="description" content="VSVS LLC owns and lets a few homes in Scottsdale, Arizona, and keeps them properly.">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="VSVS LLC">
-<meta property="og:description" content="Residential homes in Scottsdale, Arizona, kept properly.">
+<meta property="og:description" content="Homes in Scottsdale, kept properly.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vsvsllc.com/">
 <link rel="canonical" href="https://vsvsllc.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M18 20l14 26 14-26' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25' r='75%25'%3E%3Cstop offset='0' stop-color='%23ffd6a8'/%3E%3Cstop offset='.55' stop-color='%23e0784a'/%3E%3Cstop offset='1' stop-color='%23261a2e'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='18' fill='url(%23g)'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: dark;
-    --font-main: "DM Sans", "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --bg: #000000; --card: #111111; --text: #ffffff;
-    --t50: rgba(255,255,255,.5); --t60: rgba(255,255,255,.6); --t40: rgba(255,255,255,.4);
-    --hair: rgba(255,255,255,.06); --hair2: rgba(255,255,255,.12);
-    --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
-    --terra: #f0b596; --aqua: #9fe0d6; --lilac: #c9bdf5; --sage: #b7c297;
+    --bg: #000000;
+    --surface: #17181c;
+    --card: #111214;
+    --text: rgba(255, 255, 255, 0.97);
+    --muted: #969ea6;
+    --muted-2: rgba(255, 255, 255, 0.6);
+    --hair: rgba(255, 255, 255, 0.08);
+    --hair-2: rgba(255, 255, 255, 0.18);
+    --blue: #0171e3;
+    --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: var(--font-main); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
-  :focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 4px; }
-  .wrap { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
-  @media (min-width: 768px) { .wrap { padding: 0 40px; } }
+  :focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 6px; }
+  .wrap { width: min(1120px, 100% - 48px); margin: 0 auto; }
 
-  /* Navbar */
-  .nav-glass { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(0,0,0,.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--hair); }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em; }
-  .links { display: flex; gap: 32px; font-size: .875rem; color: var(--t60); }
+  /* Floating glass nav */
+  .nav { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 50; width: min(1160px, 100% - 24px); height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 8px 0 10px; border-radius: 9999px; background: rgba(23, 24, 28, 0.82); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border: 1px solid var(--hair); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; letter-spacing: -0.01em; padding: 6px 8px; }
+  .orb { width: 26px; height: 26px; border-radius: 9999px; background: radial-gradient(circle at 35% 30%, #ffd6a8 0%, #e0784a 45%, #6b2f4a 78%, #261a2e 100%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12), 0 0 18px rgba(224, 120, 74, 0.25); }
+  .links { display: flex; gap: 28px; font-size: 14px; font-weight: 500; color: var(--muted-2); }
   .links a { transition: color 180ms ease; } .links a:hover, .links a:focus-visible { color: #fff; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 0 18px; border-radius: 9999px; font-size: 14px; font-weight: 600; transition: background-color 180ms ease, color 180ms ease, transform 180ms var(--ease); white-space: nowrap; }
+  .btn-white { background: #fff; color: #000; } .btn-white:hover, .btn-white:focus-visible { background: #eaeaea; }
+  .btn-dark { background: var(--surface); color: #fff; border: 1px solid var(--hair); } .btn-dark:hover, .btn-dark:focus-visible { background: #22242a; }
+  .btn:active { transform: scale(0.98); }
+  @media (max-width: 720px) { .links { display: none; } }
 
-  /* Header */
-  .head { padding: 128px 0 64px; }
-  @media (min-width: 768px) { .head { padding: 160px 0 96px; } }
-  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 9999px; border: 1px solid var(--hair2); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--t60); }
-  .dot { width: 8px; height: 8px; border-radius: 9999px; display: inline-block; background: var(--terra); }
-  h1 { margin: 32px 0 24px; font-size: clamp(3rem, 8.5vw, 6rem); font-weight: 300; letter-spacing: -0.05em; line-height: .95; }
-  @media (min-width: 1024px) { h1 { font-size: 6rem; } }
-  .lede { margin: 0; max-width: 36rem; font-size: 1.125rem; font-weight: 300; line-height: 1.625; color: var(--t50); }
-  @media (min-width: 768px) { .lede { font-size: 1.25rem; } }
+  /* Hero */
+  .hero { min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 140px 0 96px; }
+  .hero h1 { margin: 0 0 20px; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 700; max-width: 14ch; }
+  .hero p { margin: 0 auto 32px; max-width: 34rem; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.5; color: var(--muted); }
+  .hero .row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hero .row .btn { height: 44px; padding: 0 20px; font-size: 15px; }
+  .hero small { display: block; margin-top: 28px; font-size: 12px; color: var(--muted); }
+  .hero small span + span::before { content: "·"; margin: 0 10px; color: var(--hair-2); }
 
-  /* Grid + image cards */
-  .work { padding: 64px 0; } @media (min-width: 768px) { .work { padding: 96px 0; } }
-  .grid { display: grid; gap: 40px; } @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } } @media (min-width: 1024px) { .grid { gap: 64px; } }
-  .img-card { border-radius: 24px; overflow: hidden; position: relative; background: var(--card); border: 1px solid var(--hair); aspect-ratio: 16 / 9; margin-bottom: 24px; transition: transform .5s var(--ease-out); }
-  .img-card svg { display: block; width: 100%; height: 100%; transition: transform .7s var(--ease-out); }
-  .img-card:hover svg { transform: scale(1.03); }
-  .card h2 { margin: 0 0 12px; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; } @media (min-width: 768px) { .card h2 { font-size: 1.875rem; } }
-  .card p { margin: 0 0 16px; max-width: 28rem; font-size: .875rem; line-height: 1.625; color: var(--t50); }
-  .art text { font-family: var(--font-main); font-weight: 200; letter-spacing: .22em; font-size: 128px; }
+  /* Section rhythm and fade bands, the way the reference separates blocks */
+  .band { height: 120px; background: linear-gradient(to bottom, rgba(20, 40, 60, 0), rgba(20, 40, 60, 0.05)); }
+  .band.up { background: linear-gradient(to bottom, rgba(20, 40, 60, 0.05), rgba(20, 40, 60, 0)); }
+  section { padding: 96px 0; } @media (min-width: 900px) { section { padding: 140px 0; } }
+  .label { display: inline-flex; align-items: center; height: 26px; padding: 0 12px; border-radius: 9999px; background: rgba(1, 113, 227, 0.14); color: #5aa9ff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .statement { margin: 28px 0 0; max-width: 24ch; font-size: clamp(1.75rem, 3.6vw, 2.75rem); line-height: 1.18; letter-spacing: -0.025em; font-weight: 700; }
+  .statement .dim { color: var(--muted); font-weight: 600; }
+  .statement .key { color: var(--blue); }
+  .prose { margin: 28px 0 0; max-width: 40rem; font-size: clamp(1.05rem, 1.3vw, 1.2rem); line-height: 1.6; color: var(--muted); }
+  .prose b { color: var(--text); font-weight: 600; }
 
-  /* About + tenants */
-  .about { padding: 64px 0 32px; border-top: 1px solid var(--hair); } @media (min-width: 768px) { .about { padding: 112px 0 48px; } }
-  .about-grid { display: grid; gap: 32px; } @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1.4fr; gap: 64px; } }
-  .about h2, .tenants h2 { margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.04em; line-height: 1; }
-  .about p, .tenants p { margin: 0 0 18px; max-width: 42rem; font-size: 1.0625rem; line-height: 1.65; color: var(--t60); font-weight: 300; }
-  .tenants { padding: 32px 0 96px; }
-  .panel { border: 1px solid var(--hair); background: var(--card); border-radius: 24px; padding: clamp(24px, 4vw, 48px); display: grid; gap: 16px; }
-  .cta { display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 14px 22px; border-radius: 9999px; background: #fff; color: #000; font-size: .95rem; font-weight: 700; transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease; }
-  .cta:hover, .cta:focus-visible { background: rgba(0,0,0,.92); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.4); }
+  /* The specifics: one container, hairline rows, no icons, no triad */
+  .spec { margin-top: 56px; border-radius: 24px; background: linear-gradient(to bottom, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid var(--hair); overflow: hidden; }
+  .row-spec { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 28px 28px; border-top: 1px solid var(--hair); }
+  .row-spec:first-child { border-top: 0; }
+  @media (min-width: 760px) { .row-spec { grid-template-columns: 220px 1fr; gap: 24px; padding: 32px 36px; } }
+  .row-spec h3 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.005em; color: var(--text); }
+  .row-spec p { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.55; max-width: 44rem; }
 
-  /* Footer */
-  footer { border-top: 1px solid var(--hair); padding: 40px 0 56px; }
-  .foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--t40); font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
-  .foot a:hover, .foot a:focus-visible { color: #fff; }
+  /* Tenants: a large dark card */
+  .card { border-radius: 28px; background: radial-gradient(120% 120% at 20% 0%, #1a1c21 0%, var(--card) 55%); border: 1px solid var(--hair); padding: clamp(28px, 5vw, 56px); display: grid; gap: 18px; }
+  .card h2 { margin: 6px 0 0; font-size: clamp(1.75rem, 3.4vw, 2.5rem); letter-spacing: -0.03em; line-height: 1.1; font-weight: 700; max-width: 18ch; }
+  .card p { margin: 0; max-width: 40rem; color: var(--muted); font-size: 1.05rem; line-height: 1.6; }
 
-  /* Entrances: GSAP's y:40 / 1s / stagger .15 / power3.out, without the dependency */
-  .anim-up { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
-  .anim-up.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .anim-up { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } .img-card:hover svg { transform: none; } }
+  /* The white block, last */
+  .contact { background: #fff; color: #000; padding: 120px 0; }
+  .contact h2 { margin: 0 0 12px; font-size: clamp(2.4rem, 7vw, 5rem); letter-spacing: -0.04em; line-height: 1; font-weight: 700; }
+  .contact p { margin: 0 0 32px; color: #6e7378; font-size: 1.15rem; max-width: 36rem; }
+  .contact .mail { display: inline-flex; align-items: center; height: 52px; padding: 0 22px; border-radius: 9999px; background: #000; color: #fff; font-weight: 600; font-size: 16px; transition: background-color 180ms ease, transform 180ms var(--ease); }
+  .contact .mail:hover, .contact .mail:focus-visible { background: #1c1c1e; } .contact .mail:active { transform: scale(0.98); }
+  footer { background: #fff; color: #6e7378; padding: 0 0 40px; font-size: 13px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 24px; }
+  footer a:hover { color: #000; }
+
+  /* Entrances */
+  .up { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  .up.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .up { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
-<nav class="nav-glass" aria-label="Site">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#top">VSVS LLC</a>
-    <div class="links"><a href="#about">About</a><a href="#tenants">Tenants</a><a href="#contact">Contact</a></div>
-  </div>
+<nav class="nav" aria-label="Site">
+  <a class="brand" href="#top"><span class="orb" aria-hidden="true"></span>VSVS LLC</a>
+  <div class="links"><a href="#about">About</a><a href="#how">How we work</a><a href="#tenants">Tenants</a></div>
+  <a class="btn btn-white" href="mailto:hello@vsvsllc.com">Email us</a>
 </nav>
 
 <main id="top">
-  <section class="head">
+  <section class="hero">
     <div class="wrap">
-      <div class="pill anim-up"><span class="dot"></span> Residential property</div>
-      <h1 class="anim-up">Homes, kept properly.</h1>
-      <p class="lede anim-up">VSVS LLC is a small company in Scottsdale, Arizona. It owns a few houses, lets them on plain terms, and looks after them as if it lived there.</p>
+      <h1 class="up" style="margin-inline:auto">Homes in Scottsdale, kept properly.</h1>
+      <p class="up">VSVS LLC owns a few houses, lets them on plain terms, and looks after them the way it would look after its own.</p>
+      <div class="row up">
+        <a class="btn btn-white" href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>
+        <a class="btn btn-dark" href="#how">How we work</a>
+      </div>
+      <small class="up"><span>Owned outright</span><span>Scottsdale, Arizona</span></small>
     </div>
   </section>
 
-  <section class="work" aria-label="How we work">
+  <div class="band"></div>
+  <section id="about" style="padding-top: 40px">
     <div class="wrap">
-      <div class="grid">
+      <span class="label up">What VSVS is</span>
+      <p class="statement up"><span class="dim">A small property company.</span> It owns a handful of homes in Scottsdale, lets them on plain terms, and keeps them <span class="key">properly.</span></p>
+      <p class="prose up">There is no management company in between. <b>The person who signs the lease is the person who owns the house,</b> and the person who reads the email. Small by design: we would rather keep a few homes well than many badly.</p>
+    </div>
+  </section>
+  <div class="band up"></div>
 
-        <div class="card anim-up">
-          <div class="img-card">
-            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <rect width="1920" height="1080" fill="#2b1912"/>
-              <circle cx="1500" cy="900" r="900" fill="#f0b596" opacity=".05"/>
-              <circle cx="300" cy="-200" r="700" fill="#f0b596" opacity=".04"/>
-              <path d="M420 640 L960 300 L1500 640" fill="none" stroke="#f0b596" stroke-width="3" opacity=".22"/>
-              <text x="960" y="700" text-anchor="middle" fill="#e7b79b" opacity=".9">OWNERSHIP</text>
-            </svg>
-          </div>
-          <h2>Every home we let is one we own.</h2>
-          <p>No management company in between. The person who signs the lease is the person who owns the house, and the person who answers the email.</p>
-          <div class="pill">Scottsdale, Arizona</div>
-        </div>
-
-        <div class="card anim-up">
-          <div class="img-card">
-            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <rect width="1920" height="1080" fill="#0e1f22"/>
-              <circle cx="960" cy="1400" r="1100" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".14"/>
-              <circle cx="960" cy="1400" r="900" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".1"/>
-              <circle cx="960" cy="1400" r="700" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".07"/>
-              <text x="960" y="580" text-anchor="middle" fill="#9fe0d6" opacity=".9">UPKEEP</text>
-            </svg>
-          </div>
-          <h2>Repairs within days, not months.</h2>
-          <p>Urgent things are seen to the same day. Everything else is scheduled within the week and done properly, once, by people we would use in our own homes.</p>
-          <div class="pill">Same week</div>
-        </div>
-
-        <div class="card anim-up">
-          <div class="img-card">
-            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <rect width="1920" height="1080" fill="#17152b"/>
-              <g stroke="#c9bdf5" stroke-width="2" opacity=".12" fill="none">
-                <line x1="560" y1="200" x2="1360" y2="200"/><line x1="560" y1="320" x2="1360" y2="320"/><line x1="560" y1="440" x2="1160" y2="440"/>
-                <line x1="560" y1="760" x2="1360" y2="760"/><line x1="560" y1="880" x2="1060" y2="880"/>
-              </g>
-              <circle cx="1620" cy="240" r="520" fill="#c9bdf5" opacity=".05"/>
-              <text x="960" y="640" text-anchor="middle" fill="#c9bdf5" opacity=".9">TERMS</text>
-            </svg>
-          </div>
-          <h2>Plain leases. Deposits back as agreed.</h2>
-          <p>Standard Arizona residential leases, no surprise fees, and a deposit returned on the timeline the law sets, with an itemised statement if anything is held.</p>
-          <div class="pill">Arizona residential</div>
-        </div>
-
-        <div class="card anim-up">
-          <div class="img-card">
-            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-              <rect width="1920" height="1080" fill="#1b1c10"/>
-              <path d="M-200 1080 Q 700 -300 1500 1080" fill="#b7c297" opacity=".05"/>
-              <path d="M500 1080 Q 1200 -100 2100 1080" fill="#b7c297" opacity=".04"/>
-              <circle cx="1560" cy="300" r="90" fill="none" stroke="#b7c297" stroke-width="2" opacity=".3"/>
-              <text x="960" y="640" text-anchor="middle" fill="#b7c297" opacity=".9">SCOTTSDALE</text>
-            </svg>
-          </div>
-          <h2>A small footprint in the Valley.</h2>
-          <p>A handful of houses, all in and around Scottsdale, close enough to visit. Small by design: we would rather keep a few homes well than many badly.</p>
-          <div class="pill">Since 2026</div>
-        </div>
-
+  <section id="how">
+    <div class="wrap">
+      <span class="label up">How we work</span>
+      <p class="statement up"><span class="dim">Four things you can count on,</span> in writing, before you sign.</p>
+      <div class="spec up">
+        <div class="row-spec"><h3>Ownership</h3><p>Every home we let is one we own. No sub-letting, no third-party managers, no call centre.</p></div>
+        <div class="row-spec"><h3>Repairs</h3><p>Urgent things are seen to the same day. Everything else is scheduled within the week and done once, properly, by trades we would use in our own homes.</p></div>
+        <div class="row-spec"><h3>Terms</h3><p>Standard Arizona residential leases and no surprise fees. Deposits come back on the timeline the law sets, with an itemised statement if anything is held.</p></div>
+        <div class="row-spec"><h3>Reach</h3><p>All of the homes are in and around Scottsdale, close enough to visit. One email address for everything, and a person answers it.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="wrap about-grid">
-      <h2 class="anim-up">About</h2>
-      <div>
-        <p class="anim-up">VSVS LLC owns and lets residential homes in Scottsdale, Arizona. It is a small company by design: a handful of houses, each maintained properly and let on plain terms.</p>
-        <p class="anim-up">Registered in Arizona and listed with Dun &amp; Bradstreet. Questions about a home, a lease, or renting one of ours go to a single address, and a person reads it.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="tenants" id="tenants">
+  <div class="band"></div>
+  <section id="tenants" style="padding-top: 40px">
     <div class="wrap">
-      <div class="panel anim-up">
-        <div class="pill"><span class="dot" style="background: var(--aqua)"></span> Tenants</div>
+      <div class="card up">
+        <span class="label">Tenants</span>
         <h2>If something needs fixing, say so.</h2>
-        <p>Email with the house and what happened. Urgent things are seen to the same day; everything else within the week. Rent questions, lease questions and notices go to the same address.</p>
-        <a class="cta" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">hello@vsvsllc.com</a>
+        <p>Email with the house and what happened. Urgent things the same day, everything else within the week. Rent questions, lease questions and notices go to the same address.</p>
+        <div><a class="btn btn-white" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">Email hello@vsvsllc.com</a></div>
       </div>
     </div>
   </section>
 
-  <footer id="contact">
-    <div class="wrap foot">
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2 class="up">Say hello.</h2>
+      <p class="up">Renting one of ours, asking about a lease, or just checking who we are: one address, read by the owner.</p>
+      <a class="mail up" href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap">
       <span>© 2026 VSVS LLC · Scottsdale, Arizona</span>
-      <span><a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a></span>
+      <span><a href="#about">About</a> · <a href="#how">How we work</a> · <a href="#tenants">Tenants</a></span>
     </div>
   </footer>
 </main>
 
 <script>
   (function () {
-    var items = Array.prototype.slice.call(document.querySelectorAll('.anim-up'));
+    var items = Array.prototype.slice.call(document.querySelectorAll('.up'));
     if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (entries) {
-      var visible = entries.filter(function (e) { return e.isIntersecting; })
-                           .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
-      visible.forEach(function (e, i) {
-        setTimeout(function () { e.target.classList.add('in'); }, i * 150);
-        io.unobserve(e.target);
-      });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
+      entries.filter(function (e) { return e.isIntersecting; })
+        .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; })
+        .forEach(function (e, i) { setTimeout(function () { e.target.classList.add('in'); }, i * 110); io.unobserve(e.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
     items.forEach(function (el) { io.observe(el); });
   })();
 </script>
