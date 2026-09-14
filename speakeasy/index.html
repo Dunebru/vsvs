@@ -33,7 +33,6 @@
     --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
     --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
     --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
@@ -63,23 +62,15 @@
   }
   .top nav a:hover { color: var(--ink); }
 
-  .hero { padding-block: clamp(40px, 8vh, 96px) clamp(48px, 7vw, 96px); }
+  .hero { padding-block: clamp(36px, 7vh, 88px) clamp(40px, 6vw, 80px); }
   h1 {
-    margin: 18px 0 0;
+    margin: 0;
     font-family: var(--display); font-weight: 700;
-    font-size: clamp(2.75rem, 7.4vw, 6.75rem);
-    line-height: 0.98; letter-spacing: -0.035em;
-    max-width: 12ch;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.2; letter-spacing: -0.02em;
+    max-width: 20em; text-wrap: balance;
   }
-  .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
-  .line > span { display: block; transform: translateY(110%); animation: rise 0.8s var(--ease) forwards; }
-  .line:nth-child(2) > span { animation-delay: 0.08s; }
-  .az { color: var(--blue-ink); }
-  .lede {
-    max-width: 32em; margin: 32px 0 0;
-    font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55;
-    opacity: 0; animation: fade 0.7s ease 0.4s forwards;
-  }
+  .lede { max-width: 34em; margin: 20px 0 0; }
   .lede a, .text a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
   .lede a:hover, .text a:hover { color: var(--ink); }
 
@@ -89,34 +80,27 @@
   .text p { margin: 0; max-width: 34em; }
   .text p + p { margin-top: 1.1em; }
 
-  .close { background: var(--blue); color: var(--on-blue); margin-top: clamp(24px, 4vw, 48px); padding-block: clamp(56px, 8vw, 112px) 32px; }
+  .close { background: var(--blue); color: var(--on-blue); margin-top: clamp(24px, 4vw, 48px); padding-block: clamp(44px, 6vw, 80px) 28px; }
   .close .label { color: var(--on-blue-soft); }
   .mail {
-    display: inline-block; margin-top: 18px; max-width: 100%;
+    display: inline-block; margin-top: 12px; max-width: 100%;
     font-family: var(--display); font-weight: 700;
-    font-size: clamp(1.6rem, 4.6vw, 4.25rem); line-height: 1.05; letter-spacing: -0.03em;
-    color: var(--on-blue); text-decoration: none;
-    border-bottom: 0.06em solid var(--on-blue); padding-bottom: 0.06em;
+    font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.3; letter-spacing: -0.015em;
+    color: var(--on-blue); text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 2px;
     transition: opacity 160ms ease;
   }
   .mail:hover { opacity: 0.72; }
-  .close .note { margin: 28px 0 0; max-width: 34em; color: var(--on-blue-soft); font-size: 16px; }
+  .close .note { margin: 20px 0 0; max-width: 34em; color: var(--on-blue-soft); font-size: 16px; }
   .foot {
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px;
-    margin-top: clamp(48px, 6vw, 80px); padding-bottom: max(0px, env(safe-area-inset-bottom));
+    margin-top: clamp(40px, 5vw, 64px); padding-bottom: max(0px, env(safe-area-inset-bottom));
     font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-blue-soft);
   }
 
-  @keyframes rise { to { transform: none; } }
-  @keyframes fade { to { opacity: 1; } }
-  @media (prefers-reduced-motion: reduce) {
-    .line > span { animation: none; transform: none; }
-    .lede { animation: none; opacity: 1; }
-    * { transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 
-  .store { display: inline-block; margin-top: 28px; font-family: var(--display); font-weight: 700; font-size: clamp(1.15rem, 1.8vw, 1.5rem); letter-spacing: -0.02em; color: var(--blue-ink); text-decoration: none; border-bottom: 2px solid var(--blue-ink); padding-bottom: 2px; transition: color 160ms ease, border-color 160ms ease; }
-  .store:hover { color: var(--ink); border-color: var(--ink); }
+  .store { display: inline-block; margin-top: 22px; font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 2px; transition: color 160ms ease; }
+  .store:hover { color: var(--ink); }
   .text ul { margin: 0.6em 0 0; padding-left: 1.1em; max-width: 34em; }
   .text li + li { margin-top: 0.35em; }
 </style>
@@ -134,9 +118,8 @@
 
 <main id="top">
   <section class="hero wrap">
-    <p class="label">An iPhone app from VSVS LLC</p>
-    <h1><span class="line"><span>Speakeasy.</span></span><span class="line"><span class="az">Talk on the spot.</span></span></h1>
-    <p class="lede">Two words that have nothing to do with each other, sixty seconds on the clock, and you have to say something out loud that connects them. Speakeasy is impromptu speaking practice for people who freeze when they have to think without a script.</p>
+    <h1>Speakeasy is an iPhone app for talking on the spot.</h1>
+    <p class="lede">Two words that have nothing to do with each other, sixty seconds on the clock, and you have to say something out loud that connects them. It is practice for people who freeze when they have to think without a script.</p>
     <a class="store" href="https://apps.apple.com/app/id6803355515">Download on the App Store</a>
   </section>
 
