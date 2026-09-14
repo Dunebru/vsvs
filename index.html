@@ -7,9 +7,9 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
 <title>VSVS LLC</title>
-<meta name="description" content="VSVS LLC is a small property company in Arizona. It owns houses in Scottsdale, Chandler and Tucson, and rents them out.">
+<meta name="description" content="VSVS LLC is a small property company. It owns houses across Arizona and rents them out.">
 <meta property="og:title" content="VSVS LLC">
-<meta property="og:description" content="Houses in Scottsdale, Chandler and Tucson.">
+<meta property="og:description" content="Houses across Arizona.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vsvsllc.com/">
 <meta property="og:image" content="https://vsvsllc.com/art/hero.jpg">
@@ -60,22 +60,12 @@
   .cta:active { transform: scale(0.98); }
   .cta svg { width: 16px; height: 16px; }
 
-  /* Pill tag with a dot. */
-  .pill {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 16px; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, 0.12);
-    font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.6);
-  }
-  .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lav); box-shadow: 0 0 10px var(--lav-soft); }
-
   /* Hero: the glow artwork full-bleed, the words at the bottom left. */
   .hero { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; display: flex; align-items: flex-end; }
   .hero__art { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%; transform-origin: 50% 100%; }
   .js .hero__art { animation: breathe 38s ease-in-out infinite alternate; }
   .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 50%); }
   .hero__in { width: 100%; padding-top: 140px; padding-bottom: clamp(40px, 6vw, 80px); }
-  .hero .pill { margin-bottom: 28px; }
   .hero__title {
     max-width: 14ch; margin-bottom: 24px;
     font-size: clamp(3rem, 7.6vw, 7.5rem); font-weight: 300; letter-spacing: -0.045em; line-height: 0.95;
@@ -94,13 +84,14 @@
 
   /* Cards: 24px, #111, hairline, the cover breathes on hover. */
   .cards { padding-block: 0 clamp(80px, 10vw, 140px); }
-  .cards .pill { margin-bottom: 28px; }
   .h2 { font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 300; letter-spacing: -0.045em; line-height: 0.95; margin-bottom: 20px; }
   .sub { max-width: 36rem; font-size: 1.1rem; font-weight: 300; line-height: 1.6; color: rgba(255, 255, 255, 0.5); margin-bottom: clamp(40px, 6vw, 80px); }
   .grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
   @media (min-width: 700px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 40px; } }
   @media (min-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 48px; } }
   .img-card { position: relative; overflow: hidden; aspect-ratio: 16 / 9; margin-bottom: 24px; border-radius: 24px; background: #111; border: 1px solid rgba(255, 255, 255, 0.06); }
+  .card.wide .img-card { aspect-ratio: 21 / 9; margin-bottom: 0; }
+  @media (max-width: 700px) { .card.wide .img-card { aspect-ratio: 4 / 3; } }
   .img-card img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-card); }
   .card:hover .img-card img { transform: scale(1.03); }
   .card h3 { font-size: clamp(1.5rem, 2vw, 1.875rem); font-weight: 500; margin-bottom: 12px; }
@@ -115,7 +106,6 @@
   }
   @media (min-width: 900px) { .panel { grid-template-columns: 1.1fr 1fr; align-items: end; } }
   .panel::before { content: ""; position: absolute; right: -10%; bottom: -60%; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(169, 155, 240, 0.35), rgba(169, 155, 240, 0) 65%); pointer-events: none; }
-  .panel .pill { margin-bottom: 24px; }
   .panel h2 { font-size: clamp(1.9rem, 3.4vw, 3rem); font-weight: 300; letter-spacing: -0.035em; line-height: 1.05; max-width: 16ch; }
   .panel p { font-size: 15px; line-height: 1.7; color: rgba(255, 255, 255, 0.5); max-width: 34rem; }
   .panel p + p { margin-top: 14px; }
@@ -189,9 +179,8 @@
   <section class="hero">
     <img class="hero__art" src="art/hero.jpg" alt="" width="1920" height="1080" fetchpriority="high">
     <div class="wrap hero__in">
-      <div class="pill"><span class="dot"></span>Arizona</div>
-      <h1 class="hero__title"><span class="word" style="--i:0">Houses</span> <span class="word" style="--i:1">in</span> <span class="word" style="--i:2">Scottsdale,</span> <span class="word" style="--i:3">Chandler</span> <span class="word" style="--i:4">and</span> <span class="word" style="--i:5">Tucson.</span></h1>
-      <p class="lead">VSVS LLC is a small property company. It owns houses in three Arizona cities and rents them out, with one address for everything.</p>
+      <h1 class="hero__title"><span class="word" style="--i:0">Houses</span> <span class="word" style="--i:1">across</span> <span class="word" style="--i:2">Arizona.</span></h1>
+      <p class="lead">VSVS LLC is a small property company. It owns houses in all parts of Arizona and rents them out, with one address for everything.</p>
     </div>
   </section>
 
@@ -203,29 +192,11 @@
 
   <section class="cards" id="homes">
     <div class="wrap">
-      <div class="pill up"><span class="dot"></span>Where the houses are</div>
-      <h2 class="h2 up">Three cities.</h2>
+      <h2 class="h2 up">All parts of Arizona.</h2>
       <p class="sub up">Single-family houses, rented on standard Arizona residential leases.</p>
-      <div class="grid">
-        <article class="card up" style="--d:0ms">
-          <div class="img-card"><img src="art/scottsdale.jpg" alt="" width="1600" height="900" loading="lazy"></div>
-          <h3>Scottsdale</h3>
-          <p>Where the company is based, and where its address is.</p>
-          <div class="pill">Base</div>
-        </article>
-        <article class="card up" style="--d:150ms">
-          <div class="img-card"><img src="art/chandler.jpg" alt="" width="1600" height="900" loading="lazy"></div>
-          <h3>Chandler</h3>
-          <p>Houses in the East Valley.</p>
-          <div class="pill">East Valley</div>
-        </article>
-        <article class="card up" style="--d:300ms">
-          <div class="img-card"><img src="art/tucson.jpg" alt="" width="1600" height="900" loading="lazy"></div>
-          <h3>Tucson</h3>
-          <p>Houses in southern Arizona.</p>
-          <div class="pill">Southern Arizona</div>
-        </article>
-      </div>
+      <article class="card wide up">
+        <div class="img-card"><img src="art/arizona.jpg" alt="" width="1920" height="820" loading="lazy"></div>
+      </article>
     </div>
   </section>
 
@@ -233,7 +204,6 @@
     <div class="wrap">
       <div class="panel up">
         <div>
-          <div class="pill"><span class="dot"></span>Tenants</div>
           <h2>Anything about the house goes to one address.</h2>
         </div>
         <div>
@@ -250,17 +220,16 @@
   <section class="faq" id="faq">
     <div class="wrap faq__in">
       <div>
-        <div class="pill up"><span class="dot"></span>Questions</div>
-        <h2 class="h2 up" style="margin-top: 28px">Asked and answered.</h2>
+        <h2 class="h2 up">Asked and answered.</h2>
       </div>
       <div class="faq__list up">
         <details class="faq__item">
           <summary class="faq__q">Who is VSVS?</summary>
-          <p class="faq__a">An Arizona limited liability company based in Scottsdale. It owns houses and rents them out. One owner, no management company.</p>
+          <p class="faq__a">An Arizona limited liability company. It owns houses and rents them out. One owner, no management company.</p>
         </details>
         <details class="faq__item">
           <summary class="faq__q">Where are the houses?</summary>
-          <p class="faq__a">In Scottsdale, Chandler and Tucson.</p>
+          <p class="faq__a">In all parts of Arizona.</p>
         </details>
         <details class="faq__item">
           <summary class="faq__q">I rent one of them. Where does a repair request go?</summary>
@@ -283,9 +252,7 @@
   <div class="wrap foot">
     <div>© 2026 VSVS LLC</div>
     <div class="foot__links">
-      <span>Scottsdale</span>
-      <span>Chandler</span>
-      <span>Tucson</span>
+      <span>Arizona</span>
       <a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a>
     </div>
   </div>
