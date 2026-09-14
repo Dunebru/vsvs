@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className += " js";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>VSVS LLC</title>
 <meta name="description" content="VSVS LLC owns and lets a few homes in Scottsdale, Arizona, and keeps them properly.">
@@ -120,9 +121,9 @@
   footer a { display: inline-block; padding: 8px 0; } footer a:hover { color: #000; }
 
   /* Entrances: opacity + 24px, one easing, nothing that blocks reading */
-  .up { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
-  .up.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .up { opacity: 1; transform: none; transition: none; } .sheet { transition: none; } html { scroll-behavior: auto; } }
+  .js .up { opacity: 0; transform: translateY(24px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  .js .up.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .up { opacity: 1; transform: none; transition: none; } .sheet { transition: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
