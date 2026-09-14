@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f5f7fa">
+<title>Speakeasy | VSVS LLC</title>
+<meta name="description" content="Speakeasy is an iPhone app for impromptu speaking practice, published by VSVS LLC. Two words, sixty seconds, and what you actually said.">
+<meta property="og:title" content="Speakeasy: Talk on the Spot">
+<meta property="og:description" content="An iPhone app for impromptu speaking practice.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vsvsllc.com/speakeasy/">
+<meta property="og:image" content="https://vsvsllc.com/assets/og-speakeasy.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="https://vsvsllc.com/speakeasy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #f5f7fa;
+    --ink: #1c2430;
+    --soft: #5b6676;
+    --blue: #7ea3c6;
+    --blue-ink: #4f7ea6;
+    --on-blue: #14202e;
+    --on-blue-soft: #2e4258;
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--blue); color: var(--on-blue); }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 4px; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(20px, 4vw, 48px); }
+  .label {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--soft); margin: 0;
+  }
+
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 22px; }
+  .brand { font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: -0.01em; text-decoration: none; }
+  .top nav { display: flex; gap: 24px; }
+  .top nav a {
+    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--soft); text-decoration: none; transition: color 160ms ease;
+  }
+  .top nav a:hover { color: var(--ink); }
+
+  .hero { padding-block: clamp(40px, 8vh, 96px) clamp(48px, 7vw, 96px); }
+  h1 {
+    margin: 18px 0 0;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(2.75rem, 7.4vw, 6.75rem);
+    line-height: 0.98; letter-spacing: -0.035em;
+    max-width: 12ch;
+  }
+  .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+  .line > span { display: block; transform: translateY(110%); animation: rise 0.8s var(--ease) forwards; }
+  .line:nth-child(2) > span { animation-delay: 0.08s; }
+  .az { color: var(--blue-ink); }
+  .lede {
+    max-width: 32em; margin: 32px 0 0;
+    font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55;
+    opacity: 0; animation: fade 0.7s ease 0.4s forwards;
+  }
+  .lede a, .text a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
+  .lede a:hover, .text a:hover { color: var(--ink); }
+
+  .row { display: grid; grid-template-columns: 1fr; gap: 14px 40px; padding-block: clamp(36px, 5.5vw, 76px); border-top: 1px solid rgba(28, 36, 48, 0.1); }
+  @media (min-width: 820px) { .row { grid-template-columns: 200px 1fr; } }
+  .row .label { padding-top: 0.45em; }
+  .text p { margin: 0; max-width: 34em; }
+  .text p + p { margin-top: 1.1em; }
+
+  .close { background: var(--blue); color: var(--on-blue); margin-top: clamp(24px, 4vw, 48px); padding-block: clamp(56px, 8vw, 112px) 32px; }
+  .close .label { color: var(--on-blue-soft); }
+  .mail {
+    display: inline-block; margin-top: 18px; max-width: 100%;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.6rem, 4.6vw, 4.25rem); line-height: 1.05; letter-spacing: -0.03em;
+    color: var(--on-blue); text-decoration: none;
+    border-bottom: 0.06em solid var(--on-blue); padding-bottom: 0.06em;
+    transition: opacity 160ms ease;
+  }
+  .mail:hover { opacity: 0.72; }
+  .close .note { margin: 28px 0 0; max-width: 34em; color: var(--on-blue-soft); font-size: 16px; }
+  .foot {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px;
+    margin-top: clamp(48px, 6vw, 80px); padding-bottom: max(0px, env(safe-area-inset-bottom));
+    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-blue-soft);
+  }
+
+  @keyframes rise { to { transform: none; } }
+  @keyframes fade { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    .line > span { animation: none; transform: none; }
+    .lede { animation: none; opacity: 1; }
+    * { transition: none !important; }
+  }
+
+  .store { display: inline-block; margin-top: 28px; font-family: var(--display); font-weight: 700; font-size: clamp(1.15rem, 1.8vw, 1.5rem); letter-spacing: -0.02em; color: var(--blue-ink); text-decoration: none; border-bottom: 2px solid var(--blue-ink); padding-bottom: 2px; transition: color 160ms ease, border-color 160ms ease; }
+  .store:hover { color: var(--ink); border-color: var(--ink); }
+  .text ul { margin: 0.6em 0 0; padding-left: 1.1em; max-width: 34em; }
+  .text li + li { margin-top: 0.35em; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Speakeasy: Talk on the Spot","operatingSystem":"iOS","applicationCategory":"EducationApplication","url":"https://vsvsllc.com/speakeasy/","installUrl":"https://apps.apple.com/app/id6803355515","publisher":{"@type":"Organization","name":"VSVS LLC","url":"https://vsvsllc.com/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+<header class="top wrap">
+  <a class="brand" href="/speakeasy/">Speakeasy</a>
+  <nav aria-label="Page">
+    <a href="#how">How it works</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#support">Support</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="label">An iPhone app from VSVS LLC</p>
+    <h1><span class="line"><span>Speakeasy.</span></span><span class="line"><span class="az">Talk on the spot.</span></span></h1>
+    <p class="lede">Two words that have nothing to do with each other, sixty seconds on the clock, and you have to say something out loud that connects them. Speakeasy is impromptu speaking practice for people who freeze when they have to think without a script.</p>
+    <a class="store" href="https://apps.apple.com/app/id6803355515">Download on the App Store</a>
+  </section>
+
+  <section class="row wrap" id="how">
+    <p class="label">How it works</p>
+    <div class="text">
+      <p>Thirty seconds to find an angle, then thirty to talk while your phone listens and writes down what you said. Afterwards it shows you the things you cannot hear yourself doing: how fast you went, where you stopped long enough that a listener would have noticed, which words you reach for when you are stuck, and the whole thing written out. You can hear the talk back.</p>
+      <p>There is no score. A number out of ten would tell you nothing you can act on.</p>
+      <p>Free to download. Speakeasy Pro, a subscription managed through your Apple Account, adds themed word packs and practice written from your own material.</p>
+    </div>
+  </section>
+
+  <section class="row wrap" id="privacy">
+    <p class="label">Privacy</p>
+    <div class="text">
+      <p>The talk happens on the phone. Speech is turned into text by the phone itself, the recording stays on it, there is no account to make, and two taps delete every talk you have given, audio included.</p>
+      <p>Two things reach the network: a small settings file and the word packs, which are the same for everyone, and one optional feature that sends the text of a talk to Google to judge whether you joined the two words. It stays off until you switch it on.</p>
+      <p>The full <a href="https://dunebru.github.io/speakeasy/privacy/">privacy policy</a> and the <a href="https://dunebru.github.io/speakeasy/terms/">terms of service</a>.</p>
+    </div>
+  </section>
+
+  <section class="row wrap" id="requirements">
+    <p class="label">Requirements</p>
+    <div class="text">
+      <p>iPhone with iOS 26 or later. Microphone and speech recognition permissions, which the app asks for the first time you start a talk. The phone downloads Apple's speech model once, over Wi-Fi, so that transcription can run on the device.</p>
+    </div>
+  </section>
+
+  <section class="close" id="support">
+    <div class="wrap">
+      <p class="label">Support</p>
+      <a class="mail" href="mailto:speakeasyhelp@gmail.com">speakeasyhelp@<wbr>gmail.com</a>
+      <p class="note">Questions, bugs, and anything about a subscription. For a bug, include your iPhone model and iOS version.</p>
+      <div class="foot">
+        <span>© 2026 VSVS LLC</span>
+        <span>Speakeasy is published by VSVS LLC</span>
+        <span>No cookies or tracking</span>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
