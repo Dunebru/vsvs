@@ -70,7 +70,7 @@
   .sheet.open { opacity: 1; visibility: visible; }
   .sheet-inner { display: grid; gap: 8px; text-align: center; width: 100%; max-width: 420px; }
   .sheet-inner a { display: block; padding: 16px 0; font-size: 2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
-  .sheet-inner .btn { margin: 24px auto 0; min-height: 52px; padding: 0 26px; font-size: 17px; }
+  .sheet-inner .btn { display: inline-flex; margin: 24px auto 0; min-height: 52px; padding: 0 26px; font-size: 17px; letter-spacing: 0; }
   .close { position: absolute; top: calc(16px + var(--sat)); right: 16px; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: var(--r-round); font-size: 26px; line-height: 1; color: #fff; }
 
   /* Hero */
@@ -87,6 +87,7 @@
   .band { height: clamp(64px, 10vw, 120px); background: linear-gradient(to bottom, rgba(20, 40, 60, 0), rgba(20, 40, 60, 0.05)); }
   .band.up { background: linear-gradient(to bottom, rgba(20, 40, 60, 0.05), rgba(20, 40, 60, 0)); }
   section { padding: clamp(72px, 10vw, 140px) 0; }
+  section[id] { scroll-margin-top: calc(68px + var(--sat)); }
   section.tight { padding-top: 40px; }
   .label { display: inline-flex; align-items: center; height: 26px; padding: 0 12px; border-radius: var(--r-round); background: rgba(1, 113, 227, 0.14); color: var(--blue-ink); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
   .statement { margin-top: 28px; max-width: 24ch; font-size: clamp(1.65rem, 3.6vw, 2.75rem); line-height: 1.18; letter-spacing: -0.025em; font-weight: 700; }
