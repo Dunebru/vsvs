@@ -5,229 +5,210 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VSVS LLC</title>
 <meta name="description" content="VSVS LLC owns and lets residential homes in Chandler, Arizona.">
-<meta name="theme-color" content="#050505">
+<meta name="theme-color" content="#000000">
 <meta property="og:title" content="VSVS LLC">
 <meta property="og:description" content="Residential homes in Chandler, Arizona, kept properly.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vsvsllc.com/">
 <link rel="canonical" href="https://vsvsllc.com/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050505'/%3E%3Cpath d='M18 20l14 26 14-26' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Cpath d='M18 20l14 26 14-26' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;900&family=DM+Sans:opsz,wght@9..40,200;9..40,400&family=Playfair+Display:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: dark;
-    --bg: #050505;
-    --text: #ffffff;
-    --muted: rgba(255, 255, 255, 0.66);
-    --faint: rgba(255, 255, 255, 0.3);
-    --line: rgba(255, 255, 255, 0.18);
-    --panel-line: rgba(255, 255, 255, 0.1);
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --gutter: clamp(20px, 2.6vw, 50px);
-    font-family: "DM Sans", "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-main: "DM Sans", "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --bg: #000000; --card: #111111; --text: #ffffff;
+    --t50: rgba(255,255,255,.5); --t60: rgba(255,255,255,.6); --t40: rgba(255,255,255,.4);
+    --hair: rgba(255,255,255,.06); --hair2: rgba(255,255,255,.12);
+    --ease-out: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --terra: #f0b596; --aqua: #9fe0d6; --lilac: #c9bdf5; --sage: #b7c297;
   }
   *, *::before, *::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; font-family: var(--font-main); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   a { color: inherit; text-decoration: none; }
-  :focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; border-radius: 2px; }
-  .skip { position: absolute; left: -999px; top: 8px; padding: 8px 12px; background: #fff; color: #000; z-index: 100; }
-  .skip:focus { left: 8px; }
+  :focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 4px; }
+  .wrap { max-width: 1600px; margin: 0 auto; padding: 0 24px; }
+  @media (min-width: 768px) { .wrap { padding: 0 40px; } }
 
-  /* ---------- entrances ---------- */
-  @keyframes reveal { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
-  .load { opacity: 0; filter: blur(9px); transform: translateY(15px); animation: reveal 0.9s var(--ease) forwards; }
-  .word { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(22px); animation: reveal 0.85s var(--ease) forwards; animation-delay: calc(0.22s + var(--i) * 0.13s); }
-  .reveal { opacity: 0; filter: blur(8px); transform: translateY(22px); transition: opacity 0.9s var(--ease), filter 0.9s var(--ease), transform 0.9s var(--ease); }
-  .reveal.is-visible { opacity: 1; filter: blur(0); transform: translateY(0); }
-  .reveal[data-delay="1"].is-visible { transition-delay: 120ms; }
-  .reveal[data-delay="2"].is-visible { transition-delay: 260ms; }
-  .reveal[data-delay="3"].is-visible { transition-delay: 420ms; }
-  @media (prefers-reduced-motion: reduce) {
-    .load, .word, .reveal { opacity: 1; filter: none; transform: none; animation: none; transition: none; }
-    html { scroll-behavior: auto; }
-  }
+  /* Navbar */
+  .nav-glass { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(0,0,0,.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--hair); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025em; }
+  .links { display: flex; gap: 32px; font-size: .875rem; color: var(--t60); }
+  .links a { transition: color 180ms ease; } .links a:hover, .links a:focus-visible { color: #fff; }
 
-  /* ---------- header ---------- */
-  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; padding: clamp(20px, 2.2vw, 42px); pointer-events: none; transition: padding 650ms var(--ease), background 650ms var(--ease); }
-  .site-header.is-compact { padding: 12px clamp(20px, 2.2vw, 42px); background: rgba(18, 18, 18, 0.34); -webkit-backdrop-filter: blur(22px) saturate(180%); backdrop-filter: blur(22px) saturate(180%); box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08); }
-  .brand { font-size: clamp(13px, 0.9vw, 17px); font-weight: 200; letter-spacing: 0.01em; line-height: 1; pointer-events: auto; }
-  .nav { display: flex; gap: clamp(18px, 2.1vw, 42px); pointer-events: auto; animation-delay: 120ms; }
-  .nav a { font-size: clamp(13px, 0.9vw, 17px); font-weight: 200; letter-spacing: 0.01em; line-height: 1; color: rgba(255, 255, 255, 0.86); white-space: nowrap; transition: color 180ms ease; }
-  .nav a:hover, .nav a:focus-visible { color: #ffffff; }
+  /* Header */
+  .head { padding: 128px 0 64px; }
+  @media (min-width: 768px) { .head { padding: 160px 0 96px; } }
+  .pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 9999px; border: 1px solid var(--hair2); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--t60); }
+  .dot { width: 8px; height: 8px; border-radius: 9999px; display: inline-block; background: var(--terra); }
+  h1 { margin: 32px 0 24px; font-size: clamp(3rem, 8.5vw, 6rem); font-weight: 300; letter-spacing: -0.05em; line-height: .95; }
+  @media (min-width: 1024px) { h1 { font-size: 6rem; } }
+  .lede { margin: 0; max-width: 36rem; font-size: 1.125rem; font-weight: 300; line-height: 1.625; color: var(--t50); }
+  @media (min-width: 768px) { .lede { font-size: 1.25rem; } }
 
-  /* ---------- hero ---------- */
-  .hero { position: relative; isolation: isolate; min-height: 100svh; overflow: hidden; background: var(--bg); }
-  .mark { position: absolute; top: 50%; left: 50%; width: min(78vw, 640px); height: min(78vw, 640px); transform: translate(-50%, -50%); color: #ffffff; opacity: 0; animation: markIn 2.2s var(--ease) 0.15s forwards; }
-  @keyframes markIn { to { opacity: 1; } }
-  .mark line, .mark path { stroke: currentColor; stroke-width: 0.6; fill: none; vector-effect: non-scaling-stroke; }
-  .mark .o1 { opacity: 0.34; } .mark .o2 { opacity: 0.22; } .mark .o3 { opacity: 0.14; } .mark .o4 { opacity: 0.08; }
-  .hero-title { position: absolute; left: var(--gutter); bottom: clamp(24px, 3vw, 58px); z-index: 2; margin: 0; max-width: calc(100vw - clamp(40px, 5.2vw, 100px)); color: rgba(255, 255, 255, 0.76); font-family: "Playfair Display", Georgia, serif; font-size: clamp(30px, 3.3vw, 64px); font-weight: 400; line-height: 1.08; letter-spacing: 0; }
-  .hero-title .word + .word { margin-left: 0.25em; }
-  .hero-eyebrow { position: absolute; right: var(--gutter); bottom: clamp(30px, 3.4vw, 66px); z-index: 2; margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); animation-delay: 900ms; }
+  /* Grid + image cards */
+  .work { padding: 64px 0; } @media (min-width: 768px) { .work { padding: 96px 0; } }
+  .grid { display: grid; gap: 40px; } @media (min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } } @media (min-width: 1024px) { .grid { gap: 64px; } }
+  .img-card { border-radius: 24px; overflow: hidden; position: relative; background: var(--card); border: 1px solid var(--hair); aspect-ratio: 16 / 9; margin-bottom: 24px; transition: transform .5s var(--ease-out); }
+  .img-card svg { display: block; width: 100%; height: 100%; transition: transform .7s var(--ease-out); }
+  .img-card:hover svg { transform: scale(1.03); }
+  .card h2 { margin: 0 0 12px; font-size: 1.5rem; font-weight: 500; letter-spacing: -0.01em; } @media (min-width: 768px) { .card h2 { font-size: 1.875rem; } }
+  .card p { margin: 0 0 16px; max-width: 28rem; font-size: .875rem; line-height: 1.625; color: var(--t50); }
+  .art text { font-family: var(--font-main); font-weight: 200; letter-spacing: .22em; font-size: 128px; }
 
-  /* ---------- statement ---------- */
-  .statement { display: grid; place-items: center; min-height: 100svh; padding: 32px; background: #000000; }
-  .statement p { margin: 0; max-width: 24ch; font-family: "Playfair Display", Georgia, serif; font-size: clamp(20px, 2.15vw, 42px); font-weight: 400; line-height: 1.45; letter-spacing: 0; text-align: center; }
+  /* About + tenants */
+  .about { padding: 64px 0 32px; border-top: 1px solid var(--hair); } @media (min-width: 768px) { .about { padding: 112px 0 48px; } }
+  .about-grid { display: grid; gap: 32px; } @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1.4fr; gap: 64px; } }
+  .about h2, .tenants h2 { margin: 0 0 16px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; letter-spacing: -0.04em; line-height: 1; }
+  .about p, .tenants p { margin: 0 0 18px; max-width: 42rem; font-size: 1.0625rem; line-height: 1.65; color: var(--t60); font-weight: 300; }
+  .tenants { padding: 32px 0 96px; }
+  .panel { border: 1px solid var(--hair); background: var(--card); border-radius: 24px; padding: clamp(24px, 4vw, 48px); display: grid; gap: 16px; }
+  .cta { display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 14px 22px; border-radius: 9999px; background: #fff; color: #000; font-size: .95rem; font-weight: 700; transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease; }
+  .cta:hover, .cta:focus-visible { background: rgba(0,0,0,.92); color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.4); }
 
-  /* ---------- about ---------- */
-  .about { position: relative; display: grid; grid-template-columns: minmax(0, 52.5fr) minmax(0, 47.5fr); min-height: 100svh; background: #000000; }
-  .about-copy { padding: clamp(44px, 4vw, 68px) clamp(30px, 4.3vw, 72px); }
-  .about-title { max-width: 13ch; margin: 0 0 clamp(22px, 2vw, 34px); font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.5rem, 3.25vw, 4.25rem); font-weight: 400; line-height: 0.98; letter-spacing: -0.045em; }
-  .about-text { margin: 0; max-width: 46rem; font-family: Georgia, "Times New Roman", serif; color: rgba(255, 255, 255, 0.92); font-size: clamp(1rem, 1.05vw, 1.18rem); font-weight: 400; line-height: 1.42; letter-spacing: -0.015em; }
-  .about-text + .about-text { margin-top: clamp(18px, 1.6vw, 28px); }
-  .about-figure { position: relative; min-height: 100svh; overflow: hidden; border-left: 1px solid var(--panel-line); display: grid; place-items: center; }
-  .plan { width: min(70%, 520px); height: auto; color: #ffffff; }
-  .plan line, .plan rect, .plan path { stroke: currentColor; stroke-width: 0.6; fill: none; vector-effect: non-scaling-stroke; }
-  .plan .o1 { opacity: 0.5; } .plan .o2 { opacity: 0.28; } .plan .o3 { opacity: 0.14; }
-  .about-facts { position: absolute; left: clamp(22px, 3vw, 44px); bottom: clamp(22px, 3vw, 44px); display: grid; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); line-height: 1.4; }
+  /* Footer */
+  footer { border-top: 1px solid var(--hair); padding: 40px 0 56px; }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; color: var(--t40); font-size: .75rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+  .foot a:hover, .foot a:focus-visible { color: #fff; }
 
-  /* ---------- panels ---------- */
-  .section { position: relative; padding: clamp(18px, 4vw, 52px); background: #000000; }
-  .panel { display: flex; flex-direction: column; gap: 24px; padding: clamp(24px, 4vw, 48px); border: 1px solid var(--panel-line); border-radius: 32px; background: #000000; }
-  .pill { display: inline-flex; width: fit-content; padding: 6px 16px; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.65); }
-  .panel-title { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 4vw, 4rem); font-weight: 400; line-height: 1; letter-spacing: -0.04em; }
-  .panel-copy { margin: 0; max-width: 46rem; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1rem, 1.1vw, 1.2rem); line-height: 1.45; color: rgba(255, 255, 255, 0.82); }
-  .cta { display: inline-flex; align-items: center; justify-content: center; width: fit-content; padding: 0.9rem 1.3rem; border-radius: 999px; background: #ffffff; color: #000000; font-size: 0.95rem; font-weight: 700; transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
-  .cta:hover, .cta:focus-visible { background: rgba(0, 0, 0, 0.92); color: #ffffff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4); }
-
-  /* ---------- closing ---------- */
-  .closing { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 100svh; padding: clamp(18px, 4vw, 52px); background: #000000; }
-  .closing-title { margin: 0; font-family: "Manrope", "DM Sans", sans-serif; font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; font-size: clamp(3.4rem, 9vw, 10rem); }
-  .closing-links { align-self: flex-end; margin: 0; font-family: "Manrope", "DM Sans", sans-serif; font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; font-size: clamp(2rem, 6vw, 6.4rem); text-align: right; }
-  .closing-links a { position: relative; display: inline-block; overflow: hidden; padding: 0.08em 0.16em 0.18em; margin: -0.08em -0.16em -0.18em; vertical-align: top; }
-  .closing-links a span { display: block; transition: transform 430ms cubic-bezier(0.34, 1.18, 0.64, 1); }
-  .closing-links a::after { content: attr(data-label); position: absolute; top: 0.08em; right: 0.16em; transform: translateX(112%); filter: blur(2px); transition: transform 430ms cubic-bezier(0.34, 1.18, 0.64, 1), filter 430ms ease; }
-  .closing-links a:hover span, .closing-links a:focus-visible span { transform: translateX(-112%); }
-  .closing-links a:hover::after, .closing-links a:focus-visible::after { transform: translateX(0); filter: blur(0); }
-  footer { padding-top: 40px; }
-  .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--faint); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; line-height: 1.4; text-transform: uppercase; }
-  .footer-links { display: flex; gap: 32px; }
-  .footer-links a { transition: color 180ms ease; }
-  .footer-links a:hover, .footer-links a:focus-visible { color: #ffffff; }
-
-  @media (max-width: 720px) {
-    .site-header { padding: 18px; }
-    .site-header.is-compact { padding: 12px 18px; }
-    .brand { font-size: 1rem; }
-    .hero-title { left: 18px; bottom: 64px; max-width: calc(100vw - 36px); font-size: clamp(28px, 8vw, 40px); }
-    .hero-eyebrow { left: 18px; right: auto; bottom: 22px; }
-    .about { grid-template-columns: 1fr; min-height: auto; }
-    .about-copy { min-height: 62svh; padding: 48px 18px 64px; }
-    .about-title { max-width: 10ch; font-size: clamp(2.5rem, 12vw, 4.4rem); }
-    .about-text { max-width: 38ch; font-size: 1rem; }
-    .about-figure { min-height: 62svh; border-left: 0; border-top: 1px solid var(--panel-line); }
-    .section, .closing { padding: 18px; }
-    .panel { border-radius: 24px; gap: 18px; padding: 20px; }
-    .closing-title { font-size: clamp(3rem, 16vw, 5.8rem); }
-    .closing-links { font-size: clamp(1.6rem, 9vw, 3.2rem); align-self: flex-start; text-align: left; }
-    .footer-inner { flex-direction: column; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; gap: 18px 26px; }
-  }
+  /* Entrances: GSAP's y:40 / 1s / stagger .15 / power3.out, without the dependency */
+  .anim-up { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1), transform 1s cubic-bezier(0.215, 0.61, 0.355, 1); }
+  .anim-up.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .anim-up { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } .img-card:hover svg { transform: none; } }
 </style>
 </head>
 <body>
-<a class="skip" href="#about">Skip to content</a>
+<nav class="nav-glass" aria-label="Site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">VSVS LLC</a>
+    <div class="links"><a href="#about">About</a><a href="#tenants">Tenants</a><a href="#contact">Contact</a></div>
+  </div>
+</nav>
 
-<header class="site-header" id="top">
-  <a class="brand load" href="#top">VSVS LLC</a>
-  <nav class="nav load" aria-label="Site">
-    <a href="#about">About</a>
-    <a href="#tenants">Tenants</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main>
-  <section class="hero" aria-label="VSVS LLC">
-    <svg class="mark" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
-      <path class="o4" d="M100 8 L192 60 L192 140 L100 192 L8 140 L8 60 Z"/>
-      <path class="o3" d="M100 28 L175 70 L175 130 L100 172 L25 130 L25 70 Z"/>
-      <path class="o2" d="M100 48 L158 80 L158 120 L100 152 L42 120 L42 80 Z"/>
-      <path class="o1" d="M100 68 L141 90 L141 110 L100 132 L59 110 L59 90 Z"/>
-      <line class="o2" x1="100" y1="8" x2="100" y2="192"/>
-      <line class="o2" x1="8" y1="60" x2="192" y2="140"/>
-      <line class="o2" x1="8" y1="140" x2="192" y2="60"/>
-    </svg>
-    <h1 class="hero-title">
-      <span class="word" style="--i:0">Homes</span>
-      <span class="word" style="--i:1">in</span>
-      <span class="word" style="--i:2">Chandler,</span>
-      <span class="word" style="--i:3">kept</span>
-      <span class="word" style="--i:4">properly.</span>
-    </h1>
-    <p class="hero-eyebrow load">Residential property · Arizona</p>
+<main id="top">
+  <section class="head">
+    <div class="wrap">
+      <div class="pill anim-up"><span class="dot"></span> Residential property</div>
+      <h1 class="anim-up">Homes, kept properly.</h1>
+      <p class="lede anim-up">VSVS LLC is a small company in Chandler, Arizona. It owns a few houses, lets them on plain terms, and looks after them as if it lived there.</p>
+    </div>
   </section>
 
-  <section class="statement" aria-label="What we believe">
-    <p class="reveal">A few houses, each one looked after as if we lived in it.</p>
+  <section class="work" aria-label="How we work">
+    <div class="wrap">
+      <div class="grid">
+
+        <div class="card anim-up">
+          <div class="img-card">
+            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <rect width="1920" height="1080" fill="#2b1912"/>
+              <circle cx="1500" cy="900" r="900" fill="#f0b596" opacity=".05"/>
+              <circle cx="300" cy="-200" r="700" fill="#f0b596" opacity=".04"/>
+              <path d="M420 640 L960 300 L1500 640" fill="none" stroke="#f0b596" stroke-width="3" opacity=".22"/>
+              <text x="960" y="700" text-anchor="middle" fill="#e7b79b" opacity=".9">OWNERSHIP</text>
+            </svg>
+          </div>
+          <h2>Every home we let is one we own.</h2>
+          <p>No management company in between. The person who signs the lease is the person who owns the house, and the person who answers the email.</p>
+          <div class="pill">Chandler, Arizona</div>
+        </div>
+
+        <div class="card anim-up">
+          <div class="img-card">
+            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <rect width="1920" height="1080" fill="#0e1f22"/>
+              <circle cx="960" cy="1400" r="1100" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".14"/>
+              <circle cx="960" cy="1400" r="900" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".1"/>
+              <circle cx="960" cy="1400" r="700" fill="none" stroke="#9fe0d6" stroke-width="2" opacity=".07"/>
+              <text x="960" y="580" text-anchor="middle" fill="#9fe0d6" opacity=".9">UPKEEP</text>
+            </svg>
+          </div>
+          <h2>Repairs within days, not months.</h2>
+          <p>Urgent things are seen to the same day. Everything else is scheduled within the week and done properly, once, by people we would use in our own homes.</p>
+          <div class="pill">Same week</div>
+        </div>
+
+        <div class="card anim-up">
+          <div class="img-card">
+            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <rect width="1920" height="1080" fill="#17152b"/>
+              <g stroke="#c9bdf5" stroke-width="2" opacity=".12" fill="none">
+                <line x1="560" y1="200" x2="1360" y2="200"/><line x1="560" y1="320" x2="1360" y2="320"/><line x1="560" y1="440" x2="1160" y2="440"/>
+                <line x1="560" y1="760" x2="1360" y2="760"/><line x1="560" y1="880" x2="1060" y2="880"/>
+              </g>
+              <circle cx="1620" cy="240" r="520" fill="#c9bdf5" opacity=".05"/>
+              <text x="960" y="640" text-anchor="middle" fill="#c9bdf5" opacity=".9">TERMS</text>
+            </svg>
+          </div>
+          <h2>Plain leases. Deposits back as agreed.</h2>
+          <p>Standard Arizona residential leases, no surprise fees, and a deposit returned on the timeline the law sets, with an itemised statement if anything is held.</p>
+          <div class="pill">Arizona residential</div>
+        </div>
+
+        <div class="card anim-up">
+          <div class="img-card">
+            <svg class="art" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+              <rect width="1920" height="1080" fill="#1b1c10"/>
+              <path d="M-200 1080 Q 700 -300 1500 1080" fill="#b7c297" opacity=".05"/>
+              <path d="M500 1080 Q 1200 -100 2100 1080" fill="#b7c297" opacity=".04"/>
+              <circle cx="1560" cy="300" r="90" fill="none" stroke="#b7c297" stroke-width="2" opacity=".3"/>
+              <text x="960" y="640" text-anchor="middle" fill="#b7c297" opacity=".9">CHANDLER</text>
+            </svg>
+          </div>
+          <h2>A small footprint in the East Valley.</h2>
+          <p>A handful of houses, all in and around Chandler, close enough to visit. Small by design: we would rather keep a few homes well than many badly.</p>
+          <div class="pill">Since 2026</div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <section class="about" id="about">
-    <div class="about-copy">
-      <h2 class="about-title reveal">About us</h2>
-      <p class="about-text reveal" data-delay="1">VSVS LLC owns and lets residential homes in Chandler, Arizona. It is a small company by design: a handful of houses, each maintained properly and let on plain terms.</p>
-      <p class="about-text reveal" data-delay="2">Repairs are handled within days, deposits are returned as agreed, and the person who answers the email is the person who owns the house.</p>
-    </div>
-    <div class="about-figure reveal" data-delay="3">
-      <svg class="plan" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
-        <rect class="o1" x="20" y="40" width="280" height="180" rx="2"/>
-        <line class="o2" x1="20" y1="130" x2="180" y2="130"/>
-        <line class="o2" x1="180" y1="40" x2="180" y2="220"/>
-        <line class="o2" x1="110" y1="130" x2="110" y2="220"/>
-        <line class="o3" x1="240" y1="40" x2="240" y2="130"/>
-        <line class="o3" x1="180" y1="130" x2="300" y2="130"/>
-        <path class="o1" d="M20 40 L160 8 L300 40"/>
-        <path class="o3" d="M150 220 a20 20 0 0 1 20 -20"/>
-        <path class="o3" d="M240 130 a20 20 0 0 1 20 20"/>
-      </svg>
-      <div class="about-facts">
-        <span>Chandler, Arizona</span>
-        <span>Founded 2026</span>
+    <div class="wrap about-grid">
+      <h2 class="anim-up">About</h2>
+      <div>
+        <p class="anim-up">VSVS LLC owns and lets residential homes in Chandler, Arizona. It is a small company by design: a handful of houses, each maintained properly and let on plain terms.</p>
+        <p class="anim-up">Registered in Arizona and listed with Dun &amp; Bradstreet. Questions about a home, a lease, or renting one of ours go to a single address, and a person reads it.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="tenants">
-    <div class="panel reveal">
-      <span class="pill">Tenants</span>
-      <h2 class="panel-title">If something needs fixing, say so.</h2>
-      <p class="panel-copy">Email with the house and what happened. Urgent things are seen to the same day; everything else within a few days. Rent questions, lease questions and notices go to the same address.</p>
-      <a class="cta" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">hello@vsvsllc.com</a>
+  <section class="tenants" id="tenants">
+    <div class="wrap">
+      <div class="panel anim-up">
+        <div class="pill"><span class="dot" style="background: var(--aqua)"></span> Tenants</div>
+        <h2>If something needs fixing, say so.</h2>
+        <p>Email with the house and what happened. Urgent things are seen to the same day; everything else within the week. Rent questions, lease questions and notices go to the same address.</p>
+        <a class="cta" href="mailto:hello@vsvsllc.com?subject=From%20a%20tenant">hello@vsvsllc.com</a>
+      </div>
     </div>
   </section>
 
-  <section class="closing" id="contact">
-    <h2 class="closing-title reveal">Say hello</h2>
-    <p class="closing-links reveal" data-delay="1">
-      <a href="mailto:hello@vsvsllc.com" data-label="hello@vsvsllc.com"><span>hello@vsvsllc.com</span></a>
-    </p>
-    <footer>
-      <div class="footer-inner">
-        <span>© 2026 VSVS LLC · Chandler, Arizona</span>
-        <nav class="footer-links" aria-label="Footer">
-          <a href="#about">About</a>
-          <a href="#tenants">Tenants</a>
-          <a href="mailto:hello@vsvsllc.com">Email</a>
-        </nav>
-      </div>
-    </footer>
-  </section>
+  <footer id="contact">
+    <div class="wrap foot">
+      <span>© 2026 VSVS LLC · Chandler, Arizona</span>
+      <span><a href="mailto:hello@vsvsllc.com">hello@vsvsllc.com</a></span>
+    </div>
+  </footer>
 </main>
 
 <script>
   (function () {
-    var header = document.querySelector('.site-header');
-    var compact = function () { header.classList.toggle('is-compact', window.scrollY > 24); };
-    compact(); window.addEventListener('scroll', compact, { passive: true });
-
-    var items = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('is-visible'); }); return; }
+    var items = Array.prototype.slice.call(document.querySelectorAll('.anim-up'));
+    if (!('IntersectionObserver' in window)) { items.forEach(function (el) { el.classList.add('in'); }); return; }
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      var visible = entries.filter(function (e) { return e.isIntersecting; })
+                           .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      visible.forEach(function (e, i) {
+        setTimeout(function () { e.target.classList.add('in'); }, i * 150);
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
     items.forEach(function (el) { io.observe(el); });
   })();
 </script>
