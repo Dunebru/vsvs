@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#f5f7fa">
+<meta name="theme-color" content="#ffffff">
 <title>Speakeasy | VSVS LLC</title>
 <meta name="description" content="Speakeasy is an iPhone app for impromptu speaking practice, published by VSVS LLC. Two words, sixty seconds, and what you actually said.">
 <meta property="og:title" content="Speakeasy: Talk on the Spot">
@@ -23,16 +23,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ground: #f5f7fa;
+    --ground: #ffffff;
     --ink: #1c2430;
     --soft: #5b6676;
     --blue: #7ea3c6;
+    --blue-pale: #d6e1ec;
     --blue-ink: #4f7ea6;
-    --on-blue: #14202e;
-    --on-blue-soft: #2e4258;
-    --display: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
-    --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
-    --mono: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+    --rule: rgba(28, 36, 48, 0.12);
+    --sans: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
@@ -40,69 +38,75 @@
     margin: 0;
     background: var(--ground);
     color: var(--ink);
-    font: 400 17px/1.6 var(--body);
+    font: 400 17px/1.6 var(--sans);
     -webkit-font-smoothing: antialiased;
   }
-  ::selection { background: var(--blue); color: var(--on-blue); }
+  ::selection { background: var(--blue); color: #14202e; }
   a { color: inherit; }
   :focus-visible { outline: 2px solid var(--blue-ink); outline-offset: 4px; }
 
   .wrap { max-width: 1200px; margin: 0 auto; padding-inline: clamp(20px, 4vw, 48px); }
   .label {
-    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 11.5px; font-weight: 500; line-height: 1.5; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--soft); margin: 0;
   }
 
-  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 22px; }
-  .brand { font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: -0.01em; text-decoration: none; }
+  .top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+  .brand { font-weight: 700; font-size: 16px; text-decoration: none; }
   .top nav { display: flex; gap: 24px; }
   .top nav a {
-    font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--soft); text-decoration: none; transition: color 160ms ease;
   }
   .top nav a:hover { color: var(--ink); }
 
-  .hero { padding-block: clamp(36px, 7vh, 88px) clamp(40px, 6vw, 80px); }
+  .sheet { display: grid; grid-template-columns: 1fr; gap: 40px 112px; padding-block: clamp(36px, 5vw, 64px) clamp(44px, 5vw, 72px); }
+  @media (min-width: 960px) { .sheet { grid-template-columns: minmax(300px, 540px) minmax(0, 1fr); align-items: start; } }
+  .drawing { display: flex; flex-direction: column; gap: 18px; }
+  .drawing svg { width: 100%; max-width: 540px; height: auto; display: block; }
+  .facts { display: flex; flex-wrap: wrap; gap: 6px 22px; letter-spacing: 0.06em; }
+  .statement { display: flex; flex-direction: column; gap: 36px; padding-top: 6px; }
   h1 {
     margin: 0;
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    line-height: 1.2; letter-spacing: -0.02em;
-    max-width: 20em; text-wrap: balance;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 2.8vw, 2.375rem);
+    line-height: 1.15; letter-spacing: -0.015em;
+    text-wrap: balance;
   }
-  .lede { max-width: 34em; margin: 20px 0 0; }
-  .lede a, .text a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
-  .lede a:hover, .text a:hover { color: var(--ink); }
+  .lede { margin: 16px 0 0; color: var(--soft); max-width: 34em; }
+  .lede a, .text a, .spec a { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.15em; text-decoration-thickness: 1.5px; transition: color 160ms ease; }
+  .lede a:hover, .text a:hover, .spec a:hover { color: var(--ink); }
+  .store { display: inline-block; margin-top: 18px; font-weight: 700; font-size: 1.05rem; color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 2px; transition: color 160ms ease; }
+  .store:hover { color: var(--ink); }
 
-  .row { display: grid; grid-template-columns: 1fr; gap: 14px 40px; padding-block: clamp(36px, 5.5vw, 76px); border-top: 1px solid rgba(28, 36, 48, 0.1); }
+  .specs { display: flex; flex-direction: column; }
+  .spec { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 20px; padding: 14px 0; border-top: 1px solid var(--rule); font-size: 16px; }
+  .spec:last-child { border-bottom: 1px solid var(--rule); }
+  .spec .label { padding-top: 4px; }
+  .spec p { margin: 0; }
+
+  .row { display: grid; grid-template-columns: 1fr; gap: 14px 40px; padding-block: clamp(36px, 5vw, 56px); border-top: 1px solid var(--rule); }
   @media (min-width: 820px) { .row { grid-template-columns: 200px 1fr; } }
   .row .label { padding-top: 0.45em; }
   .text p { margin: 0; max-width: 34em; }
   .text p + p { margin-top: 1.1em; }
 
-  .close { background: var(--blue); color: var(--on-blue); margin-top: clamp(24px, 4vw, 48px); padding-block: clamp(44px, 6vw, 80px) 28px; }
-  .close .label { color: var(--on-blue-soft); }
   .mail {
-    display: inline-block; margin-top: 12px; max-width: 100%;
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.3; letter-spacing: -0.015em;
-    color: var(--on-blue); text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 2px;
+    display: inline-block; max-width: 100%;
+    font-weight: 700; font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.3; letter-spacing: -0.01em;
+    color: var(--ink); text-decoration: underline; text-decoration-color: var(--blue); text-underline-offset: 0.16em; text-decoration-thickness: 2px;
     transition: opacity 160ms ease;
   }
   .mail:hover { opacity: 0.72; }
-  .close .note { margin: 20px 0 0; max-width: 34em; color: var(--on-blue-soft); font-size: 16px; }
+  .note { margin: 12px 0 0; max-width: 34em; color: var(--soft); font-size: 16px; }
   .foot {
     display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px;
-    margin-top: clamp(40px, 5vw, 64px); padding-bottom: max(0px, env(safe-area-inset-bottom));
-    font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-blue-soft);
+    padding-top: 20px; padding-bottom: calc(32px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--rule);
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--soft);
   }
 
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-
-  .store { display: inline-block; margin-top: 22px; font-family: var(--display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; color: var(--blue-ink); text-decoration: underline; text-underline-offset: 0.16em; text-decoration-thickness: 2px; transition: color 160ms ease; }
-  .store:hover { color: var(--ink); }
-  .text ul { margin: 0.6em 0 0; padding-left: 1.1em; max-width: 34em; }
-  .text li + li { margin-top: 0.35em; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Speakeasy: Talk on the Spot","operatingSystem":"iOS","applicationCategory":"EducationApplication","url":"https://vsvsllc.com/speakeasy/","installUrl":"https://apps.apple.com/app/id6803355515","publisher":{"@type":"Organization","name":"VSVS LLC","url":"https://vsvsllc.com/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 </head>
@@ -117,10 +121,49 @@
 </header>
 
 <main id="top">
-  <section class="hero wrap">
-    <h1>Speakeasy is an iPhone app for talking on the spot.</h1>
-    <p class="lede">Two words that have nothing to do with each other, sixty seconds on the clock, and you have to say something out loud that connects them. It is practice for people who freeze when they have to think without a script.</p>
-    <a class="store" href="https://apps.apple.com/app/id6803355515">Download on the App Store</a>
+  <section class="sheet wrap">
+    <div class="drawing">
+      <svg viewBox="-4 -16 108 50" role="img" aria-label="One talk drawn to scale: thirty seconds to think, then thirty seconds to talk, sixty seconds in all">
+        <rect x="0" y="0" width="50" height="14" fill="#d6e1ec"/>
+        <rect x="50" y="0" width="50" height="14" fill="#7ea3c6"/>
+        <g stroke="#4f7ea6" stroke-width="0.45" fill="none">
+          <line x1="0" y1="-7" x2="100" y2="-7"/>
+          <line x1="0" y1="-9" x2="0" y2="-5"/>
+          <line x1="100" y1="-9" x2="100" y2="-5"/>
+          <line x1="0" y1="21" x2="50" y2="21"/>
+          <line x1="0" y1="19" x2="0" y2="23"/>
+          <line x1="50" y1="19" x2="50" y2="23"/>
+          <line x1="50" y1="21" x2="100" y2="21"/>
+          <line x1="100" y1="19" x2="100" y2="23"/>
+        </g>
+        <g font-family="'Libre Franklin', 'Helvetica Neue', Arial, sans-serif" font-size="3.2" font-weight="500" fill="#1c2430" letter-spacing="0.3">
+          <text x="50" y="-10.5" text-anchor="middle">60 S</text>
+          <text x="25" y="28.5" text-anchor="middle">30 S THINK</text>
+          <text x="75" y="28.5" text-anchor="middle">30 S TALK</text>
+        </g>
+      </svg>
+      <p class="label facts">
+        <span>Two words</span>
+        <span>One talk</span>
+        <span>Everything you said, written out</span>
+      </p>
+    </div>
+
+    <div class="statement">
+      <div>
+        <h1>Speakeasy is an iPhone app for talking on the spot.</h1>
+        <p class="lede">Two words that have nothing to do with each other, sixty seconds on the clock, and you have to say something out loud that connects them. It is practice for people who freeze when they have to think without a script.</p>
+        <a class="store" href="https://apps.apple.com/app/id6803355515">Download on the App Store</a>
+      </div>
+      <dl class="specs">
+        <div class="spec"><dt class="label">Platform</dt><dd><p>iPhone, iOS 26 or later</p></dd></div>
+        <div class="spec"><dt class="label">Price</dt><dd><p>Free. Speakeasy Pro is a subscription through your Apple Account.</p></dd></div>
+        <div class="spec"><dt class="label">Speech</dt><dd><p>Turned into text on the phone</p></dd></div>
+        <div class="spec"><dt class="label">Account</dt><dd><p>None</p></dd></div>
+        <div class="spec"><dt class="label">Recordings</dt><dd><p>Stay on the phone, deleted with the history</p></dd></div>
+        <div class="spec"><dt class="label">Support</dt><dd><p><a href="mailto:help@vsvsllc.com">help@vsvsllc.com</a></p></dd></div>
+      </dl>
+    </div>
   </section>
 
   <section class="row wrap" id="how">
@@ -148,18 +191,19 @@
     </div>
   </section>
 
-  <section class="close" id="support">
-    <div class="wrap">
-      <p class="label">Support</p>
+  <section class="row wrap" id="support">
+    <p class="label">Support</p>
+    <div class="text">
       <a class="mail" href="mailto:help@vsvsllc.com">help@<wbr>vsvsllc.com</a>
       <p class="note">Questions, bugs, and anything about a subscription. For a bug, include your iPhone model and iOS version.</p>
-      <div class="foot">
-        <span>© 2026 VSVS LLC</span>
-        <span>Speakeasy is published by VSVS LLC</span>
-        <span>No cookies or tracking</span>
-      </div>
     </div>
   </section>
+
+  <footer class="foot wrap">
+    <span>© 2026 VSVS LLC</span>
+    <span>Speakeasy is published by VSVS LLC</span>
+    <span>No cookies or tracking</span>
+  </footer>
 </main>
 </body>
 </html>
